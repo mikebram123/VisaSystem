@@ -9,8 +9,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.optimizePrime.visaSystem.entities.Applicant;
+import com.optimizePrime.visaSystem.entities.TravelHistory;
 
-public interface ApplicantAPI {
+public interface TravelHistoryAPI {
 
 }
