@@ -13,7 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.optimizePrime.visaSystem.services.DependentServices;
 
 @XmlRootElement //declares the entity to be transformed to xml or JSON
 @Entity  //declared the class as an entity which will be managed by JPA
@@ -258,7 +257,7 @@ public class Applicant {
 		this.whereDoYouUseTelephone = whereDoYouUseTelephone;
 	}
 
-	public long getTelephone() {
+	public int getTelephone() {
 		return telephone;
 	}
 
