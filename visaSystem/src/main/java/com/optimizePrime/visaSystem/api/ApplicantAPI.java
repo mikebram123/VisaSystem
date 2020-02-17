@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.optimizePrime.visaSystem.entities.Applicant;
-
+@Path("/visaSystem/")
 public interface ApplicantAPI {
 
 }
