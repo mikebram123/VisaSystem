@@ -104,91 +104,91 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 
 	@Override
 	public Iterable<TravelHistory> listAllTravelHistory() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Listing all Travel History");
+		return travelDAO.findAll();
 	}
 
 	@Override
 	public TravelHistory findByTravelHistoryId(int travelHistoryId) {
-		// TODO Auto-generated method stub
-		return null;
+	
+		return travelDAO.findById(travelHistoryId).get();
 	}
 
 	@Override
 	public TravelHistory registerNewTravelHistory(TravelHistory newTravelHistory) {
-		// TODO Auto-generated method stub
-		return null;
+		newTravelHistory = travelDAO.save(newTravelHistory);
+		return newTravelHistory;
 	}
 
 	@Override
 	public Iterable<Dependant> listAllDependents() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Listing all Dependants");
+		return depDAO.findAll();
 	}
 
 	@Override
 	public Dependant findBydependantId(int dependid) {
 		// TODO Auto-generated method stub
-		return null;
+		return depDAO.findById(dependid).get();
 	}
 
 	@Override
 	public Dependant registerNewdependant(Dependant newDependant) {
-		// TODO Auto-generated method stub
-		return null;
+		newDependant = depDAO.save(newDependant);
+		return newDependant;
 	}
 
 	@Override
 	public Iterable<Country> listAllCountries() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Listing all Countries");
+		return countryDAO.findAll();
 	}
 
 	@Override
 	public Country findByCountryId(int countryId) {
 		// TODO Auto-generated method stub
-		return null;
+		return countryDAO.findById(countryId).get();
 	}
 
 	@Override
 	public Country registerNewCountry(Country newCountry) {
-		// TODO Auto-generated method stub
-		return null;
+		newCountry = countryDAO.save(newCountry);
+		return newCountry;
 	}
 
 	@Override
 	public Iterable<Application> listAllApplication() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Listing all Applications");
+		return applicationDAO.findAll();
 	}
 
 	@Override
 	public Application findByApplicationId(int applicationid) {
 		// TODO Auto-generated method stub
-		return null;
+		return applicationDAO.findById(applicationid).get();
 	}
 
 	@Override
 	public Application registerNewApplication(Application newApplication) {
-		// TODO Auto-generated method stub
-		return null;
+		newApplication= applicationDAO.save(newApplication);
+		return newApplication;
 	}
 
 	@Override
 	public Iterable<Applicant> listAllApplicants() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("listing all the applicants");
+		return applicantDAO.findAll();
 	}
 
 	@Override
 	public Applicant findByapplicantId(int applicantId) {
 		// TODO Auto-generated method stub
-		return null;
+		return applicantDAO.findById(applicantId).get();
 	}
 
 	@Override
 	public Applicant registerNewApplicant(Applicant newApplicant) {
-		// TODO Auto-generated method stub
-		return null;
+		newApplicant= applicantDAO.save(newApplicant);
+		return newApplicant;
 	}
 }
