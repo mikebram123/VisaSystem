@@ -9,8 +9,19 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+
 import com.optimizePrime.visaSystem.entities.Applicant;
 @Path("/visaSystem/")
 public interface ApplicantAPI {
+	
+	@GET  
+	@Path("/applicant/list")   
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML}) 
+	public Iterable<Applicant> listAllApplicants();
+	
+	@GET
+	@Path("/applicant/find/{applicantId}")
+	@Produces({MediaType.APPLICATION_JSON})
+	public Applicant findByapplicantId(@PathParam("applicantId")int applicantId);
 
 }
