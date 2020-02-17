@@ -24,71 +24,39 @@ import com.optimizePrime.visaSystem.entities.TypeOfTelephone;
 import com.optimizePrime.visaSystem.entities.Dependant;
 import com.optimizePrime.visaSystem.entities.EmploymentHistory;
 import com.optimizePrime.visaSystem.entities.dependantRelationship;
-<<<<<<< HEAD
-import com.optimizePrime.visaSystem.services.DependentServices;
-import com.optimizePrime.visaSystem.services.TravelHistoryServices;
-=======
-
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 
 
 @SpringBootTest
 class VisaSystemApplicationTests {
 	
-	
 	@Autowired
-<<<<<<< HEAD
-	DependentServices dependSvc1;
-
-	@Autowired
-	ApplicantServices applicantSvc;
-=======
 	DependantJPADAO dependDAO;
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 	
 	@Autowired
 	ApplicantJPADAO applicantDAO;
 	
 	@Autowired
-<<<<<<< HEAD
-	DependantJPADAO dependDAO;
-	
-	@Autowired
-	TravelHistoryJPADAO thDAO;
-	
-	@Autowired
-	ApplicationJPADAO applnDAO;
-	
-	@Autowired
-	EmploymentHistoryJPADAO ehDAO;
-	
-	@Autowired
-	CountryJPADAO countDAO;
-	
-	@Autowired
-	TravelHistoryServices thsvc;
-	
-	
-	@Test
-	void testAddApplicant() {
-=======
 	ApplicationJPADAO appDAO;
-	
-	@Autowired
-	CountryJPADAO countryDAO;
 	
 	@Autowired
 	EmploymentHistoryJPADAO employDAO;
 	
 	@Autowired
+	CountryJPADAO countryDAO;
+	
+	@Autowired
 	TravelHistoryJPADAO travelDAO;
 	
+	@Test
+	void testAddApplicant() {
+		
+	}
+
 	
 	//ADDING ENTRIES
 	
-	/*@Test
+/*	@Test
 	void testAddApplicantDAO() {
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 		Applicant applicant = new Applicant();
 		
 		applicant.setName("Ricardo");
@@ -131,8 +99,8 @@ class VisaSystemApplicationTests {
 		
 	}*/
 	
-	
-    /*@Test
+	/*
+    @Test
 	void testApplicationDAOAdd() {
 		Application app = new Application();
 		app.setAddressInUK("65 Plain View Road, Leeds");
@@ -169,8 +137,8 @@ class VisaSystemApplicationTests {
 	/*@Test
 	void testCountryDAOAdd() {
 		Country country = new Country();
-		country.setCountryVisited(countryVisited);
-		country.setAssignedTravelHistory(assignedTravelHistory);
+		//country.setCountryVisited(countryVisited);
+		//country.setAssignedTravelHistory(assignedTravelHistory);
 		
 		country = countryDAO.save(country);
 	}*/
@@ -211,7 +179,7 @@ class VisaSystemApplicationTests {
 		
 	}*/
 	
-	@Test
+/*	@Test
 	void testTravelHistoryDAOAdd() {
 		TravelHistory history = new TravelHistory();
 		//history.setAssignedApplication(assignedApplication);
@@ -230,10 +198,10 @@ class VisaSystemApplicationTests {
 		System.out.println(history);
 		assertNotNull(history, "Travel History Not Added");
 		
-		
-		
-	}
-<<<<<<< HEAD
+	}*/
+	
+	//LIST TEST CASES
+	
 	@Test
 	void testListApplicant() {
 		Iterable<Applicant> appl=applicantDAO.findAll();
@@ -253,7 +221,7 @@ class VisaSystemApplicationTests {
 	}
 	@Test
 	void testListTravelHistory() {
-		Iterable<TravelHistory> th=thDAO.findAll();
+		Iterable<TravelHistory> th=travelDAO.findAll();
 		assertNotNull(th,"Travel History Not Found");
 		for (TravelHistory travelhistory:th) {
 			System.out.println(travelhistory);
@@ -261,7 +229,7 @@ class VisaSystemApplicationTests {
 	}
 	@Test
 	void testListApplication() {
-		Iterable<Application> appln=applnDAO.findAll();
+		Iterable<Application> appln=appDAO.findAll();
 		assertNotNull(appln,"Application Not Found");
 		for (Application application:appln) {
 			System.out.println(application);
@@ -269,7 +237,7 @@ class VisaSystemApplicationTests {
 	}
 	@Test
 	void testListEmploymentHistory() {
-		Iterable<EmploymentHistory> eh=ehDAO.findAll();
+		Iterable<EmploymentHistory> eh=employDAO.findAll();
 		assertNotNull(eh,"Employment History Not Found");
 		for (EmploymentHistory employmenthistory:eh) {
 			System.out.println(employmenthistory);
@@ -277,18 +245,12 @@ class VisaSystemApplicationTests {
 	}
 	@Test
 	void testListCountry() {
-		Iterable<Country> count=countDAO.findAll();
+		Iterable<Country> count=countryDAO.findAll();
 		assertNotNull(count,"Country Not Found");
 		for (Country country:count) {
 			System.out.println(country);
 		}
+		
 	}
-	{
-	}
-	
-	}
-=======
-	
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
-
+}
 
