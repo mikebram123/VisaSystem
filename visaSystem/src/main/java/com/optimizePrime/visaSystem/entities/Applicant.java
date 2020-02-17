@@ -3,15 +3,16 @@ package com.optimizePrime.visaSystem.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.optimizePrime.visaSystem.services.DependentServices;
 
 @XmlRootElement //declares the entity to be transformed to xml or JSON
 @Entity  //declared the class as an entity which will be managed by JPA
@@ -53,8 +54,42 @@ public class Applicant {
 	boolean breachedConditions;
 	boolean beenInUkPast10Years;
 	
-	Set<Dependant> dependantsRecords= new HashSet();
+	Set<Dependant> dependantsRecords= new HashSet <>();
 	
+	Set<EmploymentHistory> employmentHistoryRecords= new HashSet<>();
+	
+	Set<Application> applicationRecords= new HashSet<>();
+	
+	
+
+	@OneToMany(mappedBy="assignedApplicant",cascade=CascadeType.ALL)
+	public Set<Dependant> getDependantsRecords() {
+		return dependantsRecords;
+	}
+
+	public void setDependantsRecords(Set<Dependant> dependantsRecords) {
+		this.dependantsRecords = dependantsRecords;
+	}
+	
+	@OneToMany(mappedBy="assignedApplicant",cascade=CascadeType.ALL)
+	public Set<EmploymentHistory> getEmploymentHistoryRecords() {
+		return employmentHistoryRecords;
+	}
+
+	public void setEmploymentHistoryRecords(Set<EmploymentHistory> employmentHistoryRecords) {
+		this.employmentHistoryRecords = employmentHistoryRecords;
+	}
+
+	@OneToMany(mappedBy="assignedApplicant",cascade=CascadeType.ALL)
+	public Set<Application> getApplicationRecords() {
+		return applicationRecords;
+	}
+
+	public void setApplicationRecords(Set<Application> applicationRecords) {
+		this.applicationRecords = applicationRecords;
+	}
+	
+
 	public Applicant() {
 		// TODO Auto-generated constructor stub
 	}
@@ -222,7 +257,7 @@ public class Applicant {
 		this.whereDoYouUseTelephone = whereDoYouUseTelephone;
 	}
 
-	public long getTelephone() {
+	public int getTelephone() {
 		return telephone;
 	}
 
