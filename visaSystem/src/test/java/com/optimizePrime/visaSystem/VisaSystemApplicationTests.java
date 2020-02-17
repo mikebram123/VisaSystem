@@ -19,28 +19,38 @@ import com.optimizePrime.visaSystem.entities.Gender;
 import com.optimizePrime.visaSystem.entities.RelationshipStatus;
 import com.optimizePrime.visaSystem.entities.TravelHistory;
 import com.optimizePrime.visaSystem.entities.TypeOfTelephone;
-import com.optimizePrime.visaSystem.services.ApplicantServices;
+
 
 import com.optimizePrime.visaSystem.entities.Dependant;
 import com.optimizePrime.visaSystem.entities.EmploymentHistory;
 import com.optimizePrime.visaSystem.entities.dependantRelationship;
+<<<<<<< HEAD
 import com.optimizePrime.visaSystem.services.DependentServices;
 import com.optimizePrime.visaSystem.services.TravelHistoryServices;
+=======
+
+>>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 
 
 @SpringBootTest
 class VisaSystemApplicationTests {
 	
+	
 	@Autowired
+<<<<<<< HEAD
 	DependentServices dependSvc1;
 
 	@Autowired
 	ApplicantServices applicantSvc;
+=======
+	DependantJPADAO dependDAO;
+>>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 	
 	@Autowired
 	ApplicantJPADAO applicantDAO;
 	
 	@Autowired
+<<<<<<< HEAD
 	DependantJPADAO dependDAO;
 	
 	@Autowired
@@ -61,6 +71,24 @@ class VisaSystemApplicationTests {
 	
 	@Test
 	void testAddApplicant() {
+=======
+	ApplicationJPADAO appDAO;
+	
+	@Autowired
+	CountryJPADAO countryDAO;
+	
+	@Autowired
+	EmploymentHistoryJPADAO employDAO;
+	
+	@Autowired
+	TravelHistoryJPADAO travelDAO;
+	
+	
+	//ADDING ENTRIES
+	
+	/*@Test
+	void testAddApplicantDAO() {
+>>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 		Applicant applicant = new Applicant();
 		
 		applicant.setName("Ricardo");
@@ -101,25 +129,111 @@ class VisaSystemApplicationTests {
 		System.out.println(applicant);
 		//assertNotNull(applicant,"Applicant not added");
 		
-		
-	}
+	}*/
 	
-	@Test
-	void testDependentDAOAdd() {
+	
+    /*@Test
+	void testApplicationDAOAdd() {
+		Application app = new Application();
+		app.setAddressInUK("65 Plain View Road, Leeds");
+		app.setAmountSpendEachMonth(50);
+		app.setAnotherIncome(true);
+		app.setDateYouPlanToArriveUK("11/12/2020");
+		app.setDateYouPlanToLeaveUK("11/08/2021");
+		app.setFamilyInUK(true);
+		app.setHaveAddressInUK(true);
+		app.setHowMuchDoYouEarnAfterTax(30000.00);
+		app.setHowMuchMoneyAreTheyPaying(2000.00);
+		app.setHowMuchWillYouBePaid(2000.00);
+		app.setLengthOfVisaVisit(8);
+		app.setPassportExpiryDate("02/02/2025");
+		app.setPassportIssueDate("03/05/2018");
+		app.setPassportIssuingAuthority("Passport Office");
+		app.setReasonWhyTherePayingForVisit("Work Related");
+		app.setReceivedPublicFundsFromUK(false);
+		app.setRelyOnYouFinancially(true);
+		app.setTotalPrice(100.50);
+		app.setWhatAreYouBeingPaidFor("Work project");
+		app.setWhoIsPayingYourVisit("Employer");
+		app.setWhoWillBePayingYouInUK("Client");
+		//app.setTravelHistoryRecords(travelHistoryRecords);
+		//app.setAssignedApplicant(assignedApplicant);
+		
+		app = appDAO.save(app);
+		
+		System.out.println(app);
+		assertNotNull(app, "Application Not Added");
+	}*/
+	
+	
+	/*@Test
+	void testCountryDAOAdd() {
+		Country country = new Country();
+		country.setCountryVisited(countryVisited);
+		country.setAssignedTravelHistory(assignedTravelHistory);
+		
+		country = countryDAO.save(country);
+	}*/
+	
+	
+/*	@Test
+	void testDependantDAOAdd() {
 		Dependant depend = new Dependant();
 		depend.setDateOfBirth("14/08/1997");
-		depend.setGivenNames("Amy Louise");
+		depend.setGivenNames("Michael Bramhall");
 		depend.setFamilyName("Leake");
 		depend.setRelationshipToYou(dependantRelationship.SIBLING);
 		depend.setCountryOfNationality("UK");
 		depend.setAlwaysHadSameNationality(true);
 		
-		depend = dependSvc1.save(depend);
+		depend = dependDAO.save(depend);
 		
 		System.out.println(depend);
-		assertNotNull(depend, "Dependent Added");
+		assertNotNull(depend, "Dependent Not Added");
+		
+	}*/
+	
+	
+/*	@Test
+	void testEmployementHistoryDAOAdd() {
+		EmploymentHistory employ = new EmploymentHistory();
+		employ.setEmployerName("Mastek");
+		employ.setEmployerAddress("36 Park Row, Leeds");
+		employ.setEmploymentStatus("Perminantly Employed");
+		employ.setStartDate("12/04/2017");
+		employ.setTelephone(077656);
+		//employ.setAssignedApplicant(assignedApplicant);
+		
+		employ = employDAO.save(employ);
+		
+		System.out.println(employ);
+		assertNotNull(employ, "Employee Not Added");
+		
+	}*/
+	
+	@Test
+	void testTravelHistoryDAOAdd() {
+		TravelHistory history = new TravelHistory();
+		//history.setAssignedApplication(assignedApplication);
+		history.setBannedFromEntry(false);
+		//history.setCountryRecords(countryRecords);
+		history.setDeported(false);
+		history.setRefusedEntryAtBorder(true);
+		history.setRefusedPermissionToStay(false);
+		history.setRefusedVisa(false);
+		history.setRemoved(false);
+		history.setRequiredToLeave(true);
+		history.setTimesVisted(4);
+		
+		history = travelDAO.save(history);
+		
+		System.out.println(history);
+		assertNotNull(history, "Travel History Not Added");
+		
+		
 		
 	}
+<<<<<<< HEAD
 	@Test
 	void testListApplicant() {
 		Iterable<Applicant> appl=applicantDAO.findAll();
@@ -173,5 +287,8 @@ class VisaSystemApplicationTests {
 	}
 	
 	}
+=======
+	
+>>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 
 
