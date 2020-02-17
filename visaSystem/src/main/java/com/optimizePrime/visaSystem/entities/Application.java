@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -30,7 +29,6 @@ import aj.org.objectweb.asm.Type;
 		private Type passportIssuingAuthority;
 		private Double totalPrice;
 		private int lengthOfVisaVisit;
-		private Applicant assignedApplicant;
 		private boolean haveAddressInUK;
 		private String addressInUK;
 		private boolean familyInUK;
@@ -43,20 +41,30 @@ import aj.org.objectweb.asm.Type;
 		private boolean anotherIncome;
 		private double howMuchDoYouEarnAfterTax;
 		
-		private Applicant linkedApplicant;
+		private Applicant assignedApplicant;
 
-		Set<TravelHistory> travelHistoryRecords = new HashSet<>();
+		private Set<TravelHistory> travelHistoryRecords = new HashSet<>();
+		
 
 		@ManyToOne
-		@JoinColumn(name="fk_applicationid")
-		public Applicant getLinkedApplicant() {
-			return linkedApplicant;
+		@Column(name="fk_assigned_applicant")
+		public Applicant getAssignedApplicant() {
+			return assignedApplicant;
 		}
 
-		public void setLinkedApplicant(Applicant linkedApplicant) {
-			this.linkedApplicant = linkedApplicant;
+		public void setAssignedApplicant(Applicant assignedApplicant) {
+			this.assignedApplicant = assignedApplicant;
 		}
-		
+
+		@OneToMany(mappedBy="assignedApplication")
+		public Set<TravelHistory> getTravelHistoryRecords() {
+			return travelHistoryRecords;
+		}
+
+		public void setTravelHistoryRecords(Set<TravelHistory> travelHistoryRecords) {
+			this.travelHistoryRecords = travelHistoryRecords;
+		}
+
 		@Id // marking the property as primary Key for the table.
 		@Column(name="application_number") // using Column to provide the default column name.
 		@GeneratedValue(strategy=GenerationType.AUTO)
@@ -148,14 +156,6 @@ import aj.org.objectweb.asm.Type;
 			this.lengthOfVisaVisit = lengthOfVisaVisit;
 		}
 
-		public Applicant getAssignedApplicant() {
-			return assignedApplicant;
-		}
-
-		public void setAssignedApplicant(Applicant assignedApplicant) {
-			this.assignedApplicant = assignedApplicant;
-		}
-
 		public boolean isHaveAddressInUK() {
 			return haveAddressInUK;
 		}
@@ -244,14 +244,6 @@ import aj.org.objectweb.asm.Type;
 			this.howMuchDoYouEarnAfterTax = howMuchDoYouEarnAfterTax;
 		}
 
-		@OneToMany(mappedBy="assignedApplication",cascade=CascadeType.ALL)
-		public Set<TravelHistory> getTravelHistoryRecords() {
-			return travelHistoryRecords;
-		}
-
-		public void setTravelHistoryRecords(Set<TravelHistory> travelHistoryRecords) {
-			this.travelHistoryRecords = travelHistoryRecords;
-		}
 
 		@Override
 		public int hashCode() {
@@ -283,14 +275,16 @@ import aj.org.objectweb.asm.Type;
 					+ ", whoWillBePayingYouInUK=" + whoWillBePayingYouInUK + ", passportExpiryDate="
 					+ passportExpiryDate + ", passportIssueDate=" + passportIssueDate + ", passportIssuingAuthority="
 					+ passportIssuingAuthority + ", totalPrice=" + totalPrice + ", lengthOfVisaVisit="
-					+ lengthOfVisaVisit + ", assignedApplicant=" + assignedApplicant + ", haveAddressInUK="
-					+ haveAddressInUK + ", addressInUK=" + addressInUK + ", familyInUK=" + familyInUK
-					+ ", reasonWhyTherePayingForVisit=" + reasonWhyTherePayingForVisit + ", howMuchMoneyAreTheyPaying="
-					+ howMuchMoneyAreTheyPaying + ", relyOnYouFinancially=" + relyOnYouFinancially
-					+ ", receivedPublicFundsFromUK=" + receivedPublicFundsFromUK + ", whoIsPayingYourVisit="
-					+ whoIsPayingYourVisit + ", amountSpendEachMonth=" + amountSpendEachMonth + ", anotherIncome="
-					+ anotherIncome + ", howMuchDoYouEarnAfterTax=" + howMuchDoYouEarnAfterTax + ", linkedApplicant="
-					+ linkedApplicant + ", travelHistoryRecords=" + travelHistoryRecords + "]";
+					+ lengthOfVisaVisit + ", haveAddressInUK=" + haveAddressInUK + ", addressInUK=" + addressInUK
+					+ ", familyInUK=" + familyInUK + ", reasonWhyTherePayingForVisit=" + reasonWhyTherePayingForVisit
+					+ ", howMuchMoneyAreTheyPaying=" + howMuchMoneyAreTheyPaying + ", relyOnYouFinancially="
+					+ relyOnYouFinancially + ", receivedPublicFundsFromUK=" + receivedPublicFundsFromUK
+					+ ", whoIsPayingYourVisit=" + whoIsPayingYourVisit + ", amountSpendEachMonth="
+					+ amountSpendEachMonth + ", anotherIncome=" + anotherIncome + ", howMuchDoYouEarnAfterTax="
+					+ howMuchDoYouEarnAfterTax + ", assignedApplicant=" + assignedApplicant + ", travelHistoryRecords="
+					+ travelHistoryRecords + "]";
 		}
+
+
 			
 	}

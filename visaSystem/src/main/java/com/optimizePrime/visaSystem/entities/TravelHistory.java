@@ -2,7 +2,6 @@ package com.optimizePrime.visaSystem.entities;
 
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,7 +30,7 @@ public class TravelHistory {
 	Application assignedApplication;
 	
 	@Id
-	@Column(name="travel_history")
+	@JoinColumn(name="travel_history")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getTravelHistoryId() {
 		return travelHistoryId;
