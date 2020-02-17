@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
 import com.optimizePrime.visaSystem.dao.ApplicantJPADAO;
 import com.optimizePrime.visaSystem.entities.Applicant;
 import com.optimizePrime.visaSystem.entities.Gender;
@@ -13,8 +14,16 @@ import com.optimizePrime.visaSystem.entities.RelationshipStatus;
 import com.optimizePrime.visaSystem.entities.TypeOfTelephone;
 import com.optimizePrime.visaSystem.services.ApplicantServices;
 
+import com.optimizePrime.visaSystem.entities.Dependant;
+import com.optimizePrime.visaSystem.entities.dependantRelationship;
+import com.optimizePrime.visaSystem.services.DependentServices;
+
+
 @SpringBootTest
 class VisaSystemApplicationTests {
+	
+	@Autowired
+	DependentServices dependSvc1;
 
 	@Autowired
 	ApplicantServices applicantSvc;
@@ -63,6 +72,23 @@ class VisaSystemApplicationTests {
 		System.out.println(applicant);
 		//assertNotNull(applicant,"Applicant not added");
 		
+		
+	}
+	
+	@Test
+	void testDependentDAOAdd() {
+		Dependant depend = new Dependant();
+		depend.setDateOfBirth("14/08/1997");
+		depend.setGivenNames("Amy Louise");
+		depend.setFamilyName("Leake");
+		depend.setRelationshipToYou(dependantRelationship.SIBLING);
+		depend.setCountryOfNationality("UK");
+		depend.setAlwaysHadSameNationality(true);
+		
+		depend = dependSvc1.save(depend);
+		
+		System.out.println(depend);
+		assertNotNull(depend, "Dependent Added");
 		
 	}
 

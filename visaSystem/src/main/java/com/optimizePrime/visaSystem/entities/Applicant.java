@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.optimizePrime.visaSystem.services.DependentServices;
+
 @XmlRootElement //declares the entity to be transformed to xml or JSON
 @Entity  //declared the class as an entity which will be managed by JPA
 @Table(name="JPA_Applicant") //declare the table name associated with the class
@@ -51,7 +53,7 @@ public class Applicant {
 	boolean breachedConditions;
 	boolean beenInUkPast10Years;
 	
-	Set<Dependent> dependantsRecords= new HashSet();
+	Set<Dependant> dependantsRecords= new HashSet();
 	
 	public Applicant() {
 		// TODO Auto-generated constructor stub
