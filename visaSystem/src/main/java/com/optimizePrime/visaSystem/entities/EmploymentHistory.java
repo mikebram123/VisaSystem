@@ -1,10 +1,12 @@
 package com.optimizePrime.visaSystem.entities;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Entity
 @Table(name="JPA_EmploymentHistory")
 public class EmploymentHistory {
 
