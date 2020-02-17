@@ -6,17 +6,26 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
 import com.optimizePrime.visaSystem.dao.ApplicantJPADAO;
+import com.optimizePrime.visaSystem.dao.ApplicationJPADAO;
+import com.optimizePrime.visaSystem.dao.CountryJPADAO;
+import com.optimizePrime.visaSystem.dao.DependantJPADAO;
+import com.optimizePrime.visaSystem.dao.EmploymentHistoryJPADAO;
+import com.optimizePrime.visaSystem.dao.TravelHistoryJPADAO;
 import com.optimizePrime.visaSystem.entities.Applicant;
+import com.optimizePrime.visaSystem.entities.Application;
+import com.optimizePrime.visaSystem.entities.Country;
 import com.optimizePrime.visaSystem.entities.Gender;
 import com.optimizePrime.visaSystem.entities.RelationshipStatus;
+import com.optimizePrime.visaSystem.entities.TravelHistory;
 import com.optimizePrime.visaSystem.entities.TypeOfTelephone;
 import com.optimizePrime.visaSystem.services.ApplicantServices;
 
 import com.optimizePrime.visaSystem.entities.Dependant;
+import com.optimizePrime.visaSystem.entities.EmploymentHistory;
 import com.optimizePrime.visaSystem.entities.dependantRelationship;
 import com.optimizePrime.visaSystem.services.DependentServices;
+import com.optimizePrime.visaSystem.services.TravelHistoryServices;
 
 
 @SpringBootTest
@@ -27,8 +36,28 @@ class VisaSystemApplicationTests {
 
 	@Autowired
 	ApplicantServices applicantSvc;
+	
 	@Autowired
 	ApplicantJPADAO applicantDAO;
+	
+	@Autowired
+	DependantJPADAO dependDAO;
+	
+	@Autowired
+	TravelHistoryJPADAO thDAO;
+	
+	@Autowired
+	ApplicationJPADAO applnDAO;
+	
+	@Autowired
+	EmploymentHistoryJPADAO ehDAO;
+	
+	@Autowired
+	CountryJPADAO countDAO;
+	
+	@Autowired
+	TravelHistoryServices thsvc;
+	
 	
 	@Test
 	void testAddApplicant() {
@@ -91,5 +120,58 @@ class VisaSystemApplicationTests {
 		assertNotNull(depend, "Dependent Added");
 		
 	}
+	@Test
+	void testListApplicant() {
+		Iterable<Applicant> appl=applicantDAO.findAll();
+		assertNotNull(appl,"Applicants Not Found");
+		for (Applicant applicant:appl) {
+			System.out.println(applicant);
+		}
+	}
+		
+	@Test
+	void testListDependant() {
+		Iterable<Dependant> depend=dependDAO.findAll();
+		assertNotNull(depend,"Dependant Not Found");
+		for (Dependant dependant:depend) {
+			System.out.println(dependant);
+		}
+	}
+	@Test
+	void testListTravelHistory() {
+		Iterable<TravelHistory> th=thDAO.findAll();
+		assertNotNull(th,"Travel History Not Found");
+		for (TravelHistory travelhistory:th) {
+			System.out.println(travelhistory);
+		}
+	}
+	@Test
+	void testListApplication() {
+		Iterable<Application> appln=applnDAO.findAll();
+		assertNotNull(appln,"Application Not Found");
+		for (Application application:appln) {
+			System.out.println(application);
+		}
+	}
+	@Test
+	void testListEmploymentHistory() {
+		Iterable<EmploymentHistory> eh=ehDAO.findAll();
+		assertNotNull(eh,"Employment History Not Found");
+		for (EmploymentHistory employmenthistory:eh) {
+			System.out.println(employmenthistory);
+		}
+	}
+	@Test
+	void testListCountry() {
+		Iterable<Country> count=countDAO.findAll();
+		assertNotNull(count,"Country Not Found");
+		for (Country country:count) {
+			System.out.println(country);
+		}
+	}
+	{
+	}
+	
+	}
 
-}
+

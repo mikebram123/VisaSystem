@@ -5,11 +5,15 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.optimizePrime.visaSystem.api.ApplicantAPI;
+import com.optimizePrime.visaSystem.dao.ApplicantJPADAO;
 import com.optimizePrime.visaSystem.entities.Applicant;
 
 @Component   //marking the class as a bean to be created 
 @Scope("singleton")
 public class ApplicantServices implements ApplicantAPI{
+	
+	@Autowired
+	ApplicantJPADAO applDao;
 
 	@Override
 	public Iterable<Applicant> listAllApplicants() {
