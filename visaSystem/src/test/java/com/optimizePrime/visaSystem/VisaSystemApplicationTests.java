@@ -21,10 +21,10 @@ class VisaSystemApplicationTests {
 	}
 	
 	@Test
-	void testDependentDAOAdd() {
+	void testDependantDAOAdd() {
 		Dependant depend = new Dependant();
 		depend.setDateOfBirth("14/08/1997");
-		depend.setGivenNames("Amy Louise");
+		depend.setGivenNames("Michael Bramhall");
 		depend.setFamilyName("Leake");
 		depend.setRelationshipToYou(dependantRelationship.SIBLING);
 		depend.setCountryOfNationality("UK");
