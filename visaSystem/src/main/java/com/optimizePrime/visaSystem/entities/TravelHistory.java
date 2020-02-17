@@ -1,7 +1,9 @@
 package com.optimizePrime.visaSystem.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +17,8 @@ import javax.persistence.Table;
 @Table(name="JPA_TravelHistory")
 public class TravelHistory {
 	
-		
 	
 	int travelHistoryId;
-	Set<Country> countryRecords;
 	int timesVisted;
 	boolean refusedVisa;
 	boolean refusedEntryAtBorder;
@@ -27,10 +27,13 @@ public class TravelHistory {
 	boolean removed;
 	boolean requiredToLeave;
 	boolean bannedFromEntry;
+	
+	
 	Application assignedApplication;
+	Set<Country> countryRecords = new HashSet<>();
 	
 	@Id
-	@JoinColumn(name="travel_history")
+	@Column(name="travel_history")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getTravelHistoryId() {
 		return travelHistoryId;
