@@ -10,9 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
-
-import org.springframework.data.annotation.Transient;
 
 @Entity
 @Table(name="JPA_Dependant")
@@ -25,22 +22,39 @@ public class Dependant {
 	private dependantRelationship relationshipToYou;
 	private Boolean alwaysHadSameNationality;
 	private String countryOfNationality;
-	private String assignedApplicant; //WILL CONNECT TO APPLICANT 
 	
-	Applicant dependantRecords;
+	private Applicant assignedApplicant;
 	
-	//RELATIONSHIPS
+	public Dependant() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
 	@ManyToOne
 	@JoinColumn(name="fk_dependant_records")
-	public Applicant getDependentRecords () {
-		return dependantRecords;
-	}
-	
-	public void setDependantRecords(Applicant dependantRecords) {
-		this.dependantRecords = dependantRecords;
+	public Applicant getAssignedApplicant() {
+		return assignedApplicant;
 	}
 
-	
+
+
+	public void setAssignedApplicant(Applicant assignedApplicant) {
+		this.assignedApplicant = assignedApplicant;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Dependant [dependantId=" + dependantId + ", familyName=" + familyName + ", givenNames=" + givenNames
+				+ ", dateOfBirth=" + dateOfBirth + ", relationshipToYou=" + relationshipToYou
+				+ ", alwaysHadSameNationality=" + alwaysHadSameNationality + ", countryOfNationality="
+				+ countryOfNationality + ", assignedApplicant=" + assignedApplicant + "]";
+	}
+
+
+
 	//GETTERS AND SETTERS
 	@Id
 	@Column(name="department_id")
@@ -103,22 +117,6 @@ public class Dependant {
 	
 	public void setCountryOfNationality(String countryOfNationality) {
 		this.countryOfNationality = countryOfNationality;
-	}
-	
-	public String getAssignedApplicant() {
-		return assignedApplicant;
-	}
-	
-	public void setAssignedApplicant(String assignedApplicant) {
-		this.assignedApplicant = assignedApplicant;
-	}
-	
-	@Override
-	public String toString() {
-		return "Dependent [dependentId=" + dependantId + ", familyName=" + familyName + ", givenNames=" + givenNames
-				+ ", dateOfBirth=" + dateOfBirth + ", relationshipToYou=" + relationshipToYou
-				+ ", alwaysHadSameNationality=" + alwaysHadSameNationality + ", countryOfNationality="
-				+ countryOfNationality + ", assignedApplicant=" + assignedApplicant + "]";
 	}
 	
 	@Override
