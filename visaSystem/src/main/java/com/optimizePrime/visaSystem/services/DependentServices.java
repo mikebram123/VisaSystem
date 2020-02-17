@@ -21,14 +21,19 @@ public class DependentServices implements DependantAPI {
 	}
 
 	@Override
-	public Dependant findBydependid(int dependid) {
-		return dependDAO.findById(dependid).get();
+	public Dependant findBydependantId(int dependid) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public Dependant save(Dependant newDependant) {
-		newDependant = dependDAO.save(newDependant);
-		return newDependant;
+	@Override
+	public Dependant registerNewdependant(Dependant newDependant) {
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+
+
 	
 
 }

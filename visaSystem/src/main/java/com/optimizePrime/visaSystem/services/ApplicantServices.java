@@ -23,4 +23,10 @@ public class ApplicantServices implements ApplicantAPI{
 		return null;
 	}
 
+	@Override
+	public Applicant registerNewApplicant(Applicant newApplicant) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
