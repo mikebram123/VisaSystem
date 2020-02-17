@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 
 
 import com.optimizePrime.visaSystem.entities.Applicant;
+
 @Path("/visaSystem/")
 public interface ApplicantAPI {
 	
@@ -23,5 +24,11 @@ public interface ApplicantAPI {
 	@Path("/applicant/find/{applicantId}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public Applicant findByapplicantId(@PathParam("applicantId")int applicantId);
+	
+	@POST // http method Post used to send data in requests.
+	@Path("/applicant/register")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Applicant registerNewApplicant(@BeanParam Applicant newApplicant);
 
 }

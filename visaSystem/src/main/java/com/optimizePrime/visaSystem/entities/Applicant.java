@@ -11,7 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 @XmlRootElement //declares the entity to be transformed to xml or JSON
@@ -20,39 +22,105 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Applicant {
 
 	int applicantId;
+	@FormParam("name")
 	String Name;
+	
+	@FormParam("passportNo")
 	long passportNo;
+	
+	@FormParam("coutryOfNationality")
 	String coutryOfNationality;
+	
+	@FormParam("datOfBirth")
 	String datOfBirth;
+	
+	@FormParam("gender")
 	Gender gender;
+	
+	@FormParam("contactEmail")
 	String contactEmail;
+	
+	@FormParam("contactLanguage")
 	String contactLanguage;
+	
+	@FormParam("placeOfBirth")
 	String placeOfBirth;
+	
+	@FormParam("countryOfBirth")
 	String countryOfBirth;
+	
+	@FormParam("relationshipStatus")
 	RelationshipStatus relationshipStatus;
+	
+	@FormParam("haveEmail")
 	boolean haveEmail;
+	
+	@FormParam("whoDoesThisEmailBelongTo")
 	String whoDoesThisEmailBelongTo; // do we need this??
+	
+	@FormParam("familyName")
 	String familyName;
+	
+	@FormParam("givenName")
 	String givenName;
+	
+	@FormParam("canBeContactedByTelephone")
 	boolean canBeContactedByTelephone;
+	
+	@FormParam("typeOfTelephone")
 	TypeOfTelephone typeOfTelephone;
+	
+	@FormParam("forUseWhileOutsideOfUK")
 	boolean forUseWhileOutsideOfUK;
+	
+	@FormParam("forUseWhileInsideOfUK")
 	boolean forUseWhileInsideOfUK;
+	
+	@FormParam("whereDoYouUseTelephone")
 	String whereDoYouUseTelephone;
+	
+	@FormParam("telephone")
 	int telephone;
+	
+	@FormParam("recievedUKMedicalTreatment")
 	boolean recievedUKMedicalTreatment;
+	
+	@FormParam("haveUKDrivingLicense")
 	boolean haveUKDrivingLicense;
+	
+	@FormParam("address")
 	String address;
+	
+	@FormParam("ownershipStatusOfHome")
 	String ownershipStatusOfHome;
+	
+	@FormParam("howLongHaveYouLivedAtThisAddress")
 	double howLongHaveYouLivedAtThisAddress;
+	
+	@FormParam("isThisCorrespondenceAddress")
 	boolean isThisCorrespondenceAddress;
+	
+	@FormParam("holdAnyOtherCItizenship")
 	boolean holdAnyOtherCItizenship;
+	
+	@FormParam("nationalIdentityNo")
 	long nationalIdentityNo;
+	
+	@FormParam("issuingAuthority")
 	String issuingAuthority;
+	
+	@FormParam("enteredUKIllegally")
 	boolean enteredUKIllegally;
+	
+	@FormParam("remainedInUKBeyondVisa")
 	boolean remainedInUKBeyondVisa;
+	
+	@FormParam("breachedConditions")
 	boolean breachedConditions;
+	
+	@FormParam("beenInUkPast10Years")
 	boolean beenInUkPast10Years;
+	
 	
 	Set<Dependant> dependantsRecords= new HashSet <>();
 	
@@ -63,6 +131,7 @@ public class Applicant {
 	
 
 	@OneToMany(mappedBy="assignedApplicant",cascade=CascadeType.ALL)
+	@XmlTransient  
 	public Set<Dependant> getDependantsRecords() {
 		return dependantsRecords;
 	}
@@ -72,6 +141,7 @@ public class Applicant {
 	}
 	
 	@OneToMany(mappedBy="assignedApplicant",cascade=CascadeType.ALL)
+	@XmlTransient  
 	public Set<EmploymentHistory> getEmploymentHistoryRecords() {
 		return employmentHistoryRecords;
 	}
@@ -81,6 +151,7 @@ public class Applicant {
 	}
 
 	@OneToMany(mappedBy="assignedApplicant",cascade=CascadeType.ALL)
+	@XmlTransient  
 	public Set<Application> getApplicationRecords() {
 		return applicationRecords;
 	}

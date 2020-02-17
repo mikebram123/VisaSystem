@@ -15,12 +15,12 @@ import com.optimizePrime.visaSystem.entities.TravelHistory;
 public interface TravelHistoryAPI {
 	
 	@GET
-	@Path("travel history/list")
+	@Path("travelHistory/list")
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Iterable<TravelHistory>listAllTravelHistory();
 	
 	@GET
-	@Path("travel history/find/{travelHistoryId}")
+	@Path("travelHistory/find/{travelHistoryId}")
 	@Produces({MediaType.APPLICATION_JSON})
 	public TravelHistory findByTravelHistoryId(@PathParam("travelHistoryId")int travelHistoryId);
 	
