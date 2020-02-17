@@ -1,19 +1,30 @@
 package com.optimizePrime.visaSystem.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import org.hibernate.id.Assigned;
-
+@Entity
+@Table(name="JPA_Country")
 public class Country {
 	
 	int countryId;
 	String countryVisited;
-	Assigned travelHistory;
+	TravelHistory assignedTravelHistory;
 	
+	@ManyToOne
+	@JoinColumn(name="fk_country_records")
+	public TravelHistory getAssignedTravelHistory() {
+		return assignedTravelHistory;
+	}
+	public void setAssignedTravelHistory(TravelHistory assignedTravelHistory) {
+		this.assignedTravelHistory = assignedTravelHistory;
+	}
 	@Id
 	@Column(name="Country_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -29,17 +40,11 @@ public class Country {
 	public void setCountryVisited(String countryVisited) {
 		this.countryVisited = countryVisited;
 	}
-	@OneToMany(mappedBy="assignedCountry")
-	public Assigned getTravelHistory() {
-		return travelHistory;
-	}
-	public void setTravelHistory(Assigned travelHistory) {
-		this.travelHistory = travelHistory;
-	}
+	
 	@Override
 	public String toString() {
-		return "Country [countryId=" + countryId + ", countryVisited=" + countryVisited + ", travelHistory="
-				+ travelHistory + "]";
+		return "Country [countryId=" + countryId + ", countryVisited=" + countryVisited + ", assignedTravelHistory="
+				+ assignedTravelHistory + "]";
 	}
 	@Override
 	public int hashCode() {
