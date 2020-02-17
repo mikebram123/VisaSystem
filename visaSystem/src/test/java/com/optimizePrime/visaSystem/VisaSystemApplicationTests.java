@@ -20,12 +20,12 @@ import com.optimizePrime.visaSystem.entities.Gender;
 import com.optimizePrime.visaSystem.entities.RelationshipStatus;
 import com.optimizePrime.visaSystem.entities.TravelHistory;
 import com.optimizePrime.visaSystem.entities.TypeOfTelephone;
-import com.optimizePrime.visaSystem.services.ApplicantServices;
+
 
 import com.optimizePrime.visaSystem.entities.Dependant;
 import com.optimizePrime.visaSystem.entities.EmploymentHistory;
 import com.optimizePrime.visaSystem.entities.dependantRelationship;
-import com.optimizePrime.visaSystem.services.DependentServices;
+
 
 
 @SpringBootTest
