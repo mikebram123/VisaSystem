@@ -82,6 +82,7 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 		return th;
 	}
 	
+	@Transactional
 	public EmploymentHistory assignEmploymentHistoryToApplicant(int emphId, int applicantId) {
 		EmploymentHistory eh = emphisDAO.findById(emphId).get();
 		Applicant applic = applicantDAO.findById(applicantId).get();
@@ -92,6 +93,7 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 		return eh;
 	}
 	
+	@Transactional
 	public Dependant assignDependantsToApplicant(int depId,int applicantId) {
 		Dependant dep = depDAO.findById(depId).get();
 		Applicant applic = applicantDAO.findById(applicantId).get();
