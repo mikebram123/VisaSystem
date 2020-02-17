@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import com.optimizePrime.visaSystem.api.ApplicantAPI;
+import com.optimizePrime.visaSystem.api.ApplicationAPI;
+import com.optimizePrime.visaSystem.api.CountryAPI;
+import com.optimizePrime.visaSystem.api.DependantAPI;
+import com.optimizePrime.visaSystem.api.TravelHistoryAPI;
 import com.optimizePrime.visaSystem.dao.ApplicantJPADAO;
 import com.optimizePrime.visaSystem.dao.ApplicationJPADAO;
 import com.optimizePrime.visaSystem.dao.CountryJPADAO;
@@ -21,7 +26,7 @@ import com.optimizePrime.visaSystem.entities.TravelHistory;
 
 @Component
 @Scope("singleton")
-public class VisaSystemServices {
+public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryAPI, DependantAPI,TravelHistoryAPI {
 
 	@Autowired
 	ApplicantJPADAO applicantDAO;
@@ -95,5 +100,95 @@ public class VisaSystemServices {
 		applic.getDependantsRecords().add(dep);
 		
 		return dep;
+	}
+
+	@Override
+	public Iterable<TravelHistory> listAllTravelHistory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TravelHistory findByTravelHistoryId(int travelHistoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TravelHistory registerNewTravelHistory(TravelHistory newTravelHistory) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Dependant> listAllDependents() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Dependant findBydependantId(int dependid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Dependant registerNewdependant(Dependant newDependant) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Country> listAllCountries() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Country findByCountryId(int countryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Country registerNewCountry(Country newCountry) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Application> listAllApplication() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Application findByApplicationId(int applicationid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Application registerNewApplication(Application newApplication) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Applicant> listAllApplicants() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Applicant findByapplicantId(int applicantId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Applicant registerNewApplicant(Applicant newApplicant) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
