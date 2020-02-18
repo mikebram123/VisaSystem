@@ -1,27 +1,45 @@
 package com.optimizePrime.visaSystem.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+@XmlRootElement
 @Entity
 @Table(name="JPA_EmploymentHistory")
 public class EmploymentHistory {
 
 	int employmentId;
+	
+	@FormParam("employerName")
 	String employerName;
+	
+	@FormParam("employerAddress")
 	String employerAddress;
+	
+	@FormParam("startDate")
 	String startDate;
+	
+	@FormParam("employmentStatus")
 	String employmentStatus;
+	
+	@FormParam("telephone")
 	long telephone;
+	
 	Applicant assignedApplicant;
 	
 	public EmploymentHistory() {
 	}
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getEmploymentId() {
 		return employmentId;
 	}
@@ -73,6 +91,7 @@ public class EmploymentHistory {
 	
 	@ManyToOne
 	@JoinColumn(name="fk_assigned_applicant")
+	@XmlTransient
 	public Applicant getAssignedApplicant() {
 		return assignedApplicant;
 	}
