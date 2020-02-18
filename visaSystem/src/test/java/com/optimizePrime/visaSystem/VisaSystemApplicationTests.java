@@ -11,20 +11,15 @@ import com.optimizePrime.visaSystem.dao.ApplicationJPADAO;
 import com.optimizePrime.visaSystem.dao.CountryJPADAO;
 import com.optimizePrime.visaSystem.dao.DependantJPADAO;
 import com.optimizePrime.visaSystem.dao.EmploymentHistoryJPADAO;
+import com.optimizePrime.visaSystem.dao.OffendeeDetailsDAO;
 import com.optimizePrime.visaSystem.dao.TravelHistoryJPADAO;
 import com.optimizePrime.visaSystem.entities.Applicant;
 import com.optimizePrime.visaSystem.entities.Application;
 import com.optimizePrime.visaSystem.entities.Country;
-import com.optimizePrime.visaSystem.entities.Gender;
-import com.optimizePrime.visaSystem.entities.RelationshipStatus;
-import com.optimizePrime.visaSystem.entities.TravelHistory;
-import com.optimizePrime.visaSystem.entities.TypeOfTelephone;
-
-
 import com.optimizePrime.visaSystem.entities.Dependant;
 import com.optimizePrime.visaSystem.entities.EmploymentHistory;
-import com.optimizePrime.visaSystem.entities.dependantRelationship;
-
+import com.optimizePrime.visaSystem.entities.OffendeeDetails;
+import com.optimizePrime.visaSystem.entities.TravelHistory;
 
 @SpringBootTest
 class VisaSystemApplicationTests {
@@ -47,12 +42,14 @@ class VisaSystemApplicationTests {
 	@Autowired
 	TravelHistoryJPADAO travelDAO;
 	
+	@Autowired
+	OffendeeDetailsDAO offendeeDAO;
+	
 	@Test
 	void testAddApplicant() {
 		
 	}
 
-	
 	//ADDING ENTRIES
 	
 /*	@Test
@@ -202,6 +199,8 @@ class VisaSystemApplicationTests {
 	
 	//LIST TEST CASES
 	
+	
+	
 	@Test
 	void testListApplicant() {
 		Iterable<Applicant> appl=applicantDAO.findAll();
@@ -243,6 +242,7 @@ class VisaSystemApplicationTests {
 			System.out.println(employmenthistory);
 		}
 	}
+	
 	@Test
 	void testListCountry() {
 		Iterable<Country> count=countryDAO.findAll();
