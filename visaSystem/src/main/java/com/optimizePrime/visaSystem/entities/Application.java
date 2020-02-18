@@ -329,8 +329,7 @@ public class Application {
 				+ relyOnYouFinancially + ", receivedPublicFundsFromUK=" + receivedPublicFundsFromUK
 				+ ", whoIsPayingYourVisit=" + whoIsPayingYourVisit + ", amountSpendEachMonth="
 				+ amountSpendEachMonth + ", anotherIncome=" + anotherIncome + ", howMuchDoYouEarnAfterTax="
-				+ howMuchDoYouEarnAfterTax + ", assignedApplicant=" + assignedApplicant + ", travelHistoryRecords="
-				+ travelHistoryRecords + "]";
+				+ howMuchDoYouEarnAfterTax + "]";
 	}
 
 
