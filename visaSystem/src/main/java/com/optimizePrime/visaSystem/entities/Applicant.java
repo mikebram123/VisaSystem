@@ -80,7 +80,7 @@ public class Applicant {
 	String whereDoYouUseTelephone;
 	
 	@FormParam("telephone")
-	int telephone;
+	long telephone;
 	
 	@FormParam("recievedUKMedicalTreatment")
 	boolean recievedUKMedicalTreatment;
@@ -328,11 +328,11 @@ public class Applicant {
 		this.whereDoYouUseTelephone = whereDoYouUseTelephone;
 	}
 
-	public int getTelephone() {
+	public long getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(int telephone) {
+	public void setTelephone(long telephone) {
 		this.telephone = telephone;
 	}
 
