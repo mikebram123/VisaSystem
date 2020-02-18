@@ -8,17 +8,24 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+@XmlRootElement
 @Entity
 @Table(name="JPA_Country")
 public class Country {
 	
 	int countryId;
+	@FormParam("countryVisited")
 	String countryVisited;
+	
 	TravelHistory assignedTravelHistory;
 	
 	@ManyToOne
 	@JoinColumn(name="fk_country_records")
+	@XmlTransient
 	public TravelHistory getAssignedTravelHistory() {
 		return assignedTravelHistory;
 	}

@@ -10,17 +10,33 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+@XmlRootElement
 @Entity
 @Table(name="JPA_Dependant")
 public class Dependant {
 	
 	private int dependantId;
+	
+	@FormParam("familyName")
 	private String familyName;
+	
+	@FormParam("givenNames")
 	private String givenNames;
+	
+	@FormParam("dateOfBirth")
 	private String dateOfBirth;
+	
+	@FormParam("relationshipToYou")
 	private dependantRelationship relationshipToYou;
+	
+	@FormParam("alwaysHadSameNationality")
 	private Boolean alwaysHadSameNationality;
+	
+	@FormParam("countryOfNationality")
 	private String countryOfNationality;
 	
 	private Applicant assignedApplicant;
@@ -33,6 +49,7 @@ public class Dependant {
 
 	@ManyToOne
 	@JoinColumn(name="fk_dependant_records")
+	@XmlTransient
 	public Applicant getAssignedApplicant() {
 		return assignedApplicant;
 	}
