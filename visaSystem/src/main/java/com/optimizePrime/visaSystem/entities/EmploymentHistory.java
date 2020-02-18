@@ -1,6 +1,8 @@
 package com.optimizePrime.visaSystem.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,6 +24,7 @@ public class EmploymentHistory {
 	}
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getEmploymentId() {
 		return employmentId;
 	}
