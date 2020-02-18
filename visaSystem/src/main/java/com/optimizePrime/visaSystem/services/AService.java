@@ -19,7 +19,7 @@ public class AService {
 	public static boolean inLast10Years(String Date) {
 		double years = 0;
 		try { 				//example 
-			String string = "18-02-2020T10:20:00";//comes from the param of date
+			String string = "20-02-2020T10:20:00";//comes from the param of date
 
 			Date date = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss").parse(Date); //convert DB date from string to Date object
 			Date currentDate = new Date(); //gets current date
@@ -48,7 +48,7 @@ public class AService {
 	public static void main(String[]args)
 	{
 
-		String exampledate = "13-02-2012T10:20:00";
+		String exampledate = "13-05-2028T10:20:00";
 		
 		System.out.println(inLast10Years(exampledate));//make call from method
 }
