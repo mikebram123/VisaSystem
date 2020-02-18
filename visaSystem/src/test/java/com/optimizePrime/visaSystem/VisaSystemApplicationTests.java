@@ -325,20 +325,16 @@ class VisaSystemApplicationTests {
 		app.setReasonWhyTherePayingForVisit("n/a");
 		app.setReceivedPublicFundsFromUK(false);
 		app.setRelyOnYouFinancially(true);
-<<<<<<< HEAD
 		app.setTotalPrice(100.50);
 		app.setWhatAreYouBeingPaidFor("Work project");
 		app.setWhoIsPayingYourVisit("Employer");
-		app.setWhoWillBePayingYouInUK("Client");
-		
-=======
+		app.setWhoWillBePayingYouInUK("Client");	
 		app.setTotalPrice(200.00);
 		app.setWhatAreYouBeingPaidFor("See family");
 		app.setWhoIsPayingYourVisit("Myself");
 		app.setWhoWillBePayingYouInUK("No one");
 		//app.setTravelHistoryRecords(travelHistoryRecords);
 		//app.setAssignedApplicant(assignedApplicant);
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 		
 		app = appDAO.save(app);
 		
@@ -346,11 +342,8 @@ class VisaSystemApplicationTests {
 		assertNotNull(app, "Application Not Added");
 	}
 	
-<<<<<<< HEAD
-	
-=======
+
 /*	
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 	@Test
 	void testCountryDAOAdd() {
 		Country country = new Country();
@@ -420,7 +413,6 @@ class VisaSystemApplicationTests {
 	//LIST TEST CASES
 
 	/*@Test
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 	void testListApplicant() {
 		Iterable<Applicant> appl=applicantDAO.findAll();
 		assertNotNull(appl,"Applicants Not Found");
@@ -474,9 +466,6 @@ class VisaSystemApplicationTests {
 		
 	}*/
 	
-	//UPDATE TEST CASE
-	
-	//DELETE TEST CASE
 	
 	//ASSIGNING OBJECTS TO OBJECTS
 	
