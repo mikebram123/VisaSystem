@@ -130,7 +130,6 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 
 	@Override
 	public Dependant findBydependantId(int dependid) {
-		// TODO Auto-generated method stub
 		return depDAO.findById(dependid).get();
 	}
 
@@ -148,7 +147,6 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 
 	@Override
 	public Country findByCountryId(int countryId) {
-		// TODO Auto-generated method stub
 		return countryDAO.findById(countryId).get();
 	}
 
@@ -166,7 +164,6 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 
 	@Override
 	public Application findByApplicationId(int applicationid) {
-		// TODO Auto-generated method stub
 		return applicationDAO.findById(applicationid).get();
 	}
 
@@ -184,7 +181,6 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 
 	@Override
 	public Applicant findByapplicantId(int applicantId) {
-		// TODO Auto-generated method stub
 		return applicantDAO.findById(applicantId).get();
 	}
 
