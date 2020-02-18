@@ -12,32 +12,77 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
-
+@XmlRootElement
 @Entity
 @Table(name="JPA_Application")
 public class Application {
 	private int applicationid;
+	
+	@FormParam("dateYouPlanToLeaveUK")
 	private String dateYouPlanToLeaveUK;
+	
+	@FormParam("dateYouPlanToArriveUK")
 	private String dateYouPlanToArriveUK;
+	
+	@FormParam("whatAreYouBeingPaidFor")
 	private String whatAreYouBeingPaidFor;
+	
+	@FormParam("howMuchWillYouBePaid")
 	private Double howMuchWillYouBePaid;
+	
+	@FormParam("whoWillBePayingYouInUK")
 	private String whoWillBePayingYouInUK;
+	
+	@FormParam("passportExpiryDate")
 	private String passportExpiryDate;
+	
+	@FormParam("passportIssueDate")
 	private String passportIssueDate;
+	
+	@FormParam("passportIssuingAuthority")
 	private String passportIssuingAuthority;
+	
+	@FormParam("totalPrice")
 	private Double totalPrice;
+	
+	@FormParam("lengthOfVisaVisit")
 	private int lengthOfVisaVisit;
+	
+	@FormParam("haveAddressInUK")
 	private boolean haveAddressInUK;
+	
+	@FormParam("addressInUK")
 	private String addressInUK;
+	
+	@FormParam("familyInUK")
 	private boolean familyInUK;
+	
+	@FormParam("reasonWhyTherePayingForVisit")
 	private String reasonWhyTherePayingForVisit;
+	
+	@FormParam("howMuchMoneyAreTheyPaying")
 	private double howMuchMoneyAreTheyPaying;
+	
+	@FormParam("relyOnYouFinancially")
 	private boolean relyOnYouFinancially;
+	
+	@FormParam("receivedPublicFundsFromUK")
 	private boolean receivedPublicFundsFromUK;
+	
+	@FormParam("whoIsPayingYourVisit")
 	private String whoIsPayingYourVisit;
+	
+	@FormParam("amountSpendEachMonth")
 	private double amountSpendEachMonth;
+	
+	@FormParam("anotherIncome")
 	private boolean anotherIncome;
+	
+	@FormParam("howMuchDoYouEarnAfterTax")
 	private double howMuchDoYouEarnAfterTax;
 
 	private Applicant assignedApplicant;
@@ -47,6 +92,7 @@ public class Application {
 
 	@ManyToOne
 	@JoinColumn(name="fk_assigned_applicant")
+	@XmlTransient
 	public Applicant getAssignedApplicant() {
 		return assignedApplicant;
 	}
@@ -56,6 +102,7 @@ public class Application {
 	}
 
 	@OneToMany(mappedBy="assignedApplication")
+	@XmlTransient
 	public Set<TravelHistory> getTravelHistoryRecords() {
 		return travelHistoryRecords;
 	}
