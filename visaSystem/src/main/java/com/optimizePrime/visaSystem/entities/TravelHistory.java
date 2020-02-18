@@ -12,20 +12,40 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+@XmlRootElement
 @Entity
 @Table(name="JPA_TravelHistory")
 public class TravelHistory {
 	
 	
 	int travelHistoryId;
+	
+	@FormParam("timesVisted")
 	int timesVisted;
+	
+	@FormParam("refusedVisa")
 	boolean refusedVisa;
+	
+	@FormParam("refusedEntryAtBorder")
 	boolean refusedEntryAtBorder;
+	
+	@FormParam("refusedPermissionToStay")
 	boolean refusedPermissionToStay;
+	
+	@FormParam("deported")
 	boolean deported;
+	
+	@FormParam("removed")
 	boolean removed;
+	
+	@FormParam("requiredToLeave")
 	boolean requiredToLeave;
+	
+	@FormParam("bannedFromEntry")
 	boolean bannedFromEntry;
 	
 	
@@ -41,6 +61,7 @@ public class TravelHistory {
 
 	@ManyToOne
 	@JoinColumn(name="fk_assigned_application")
+	@XmlTransient
 	public Application getAssignedApplication() {
 		return assignedApplication;
 	}
@@ -52,6 +73,7 @@ public class TravelHistory {
 	}
 	
 	@OneToMany(mappedBy="assignedTravelHistory")
+	@XmlTransient
 	public Set<Country> getCountryRecords() {
 		return countryRecords;
 	}
