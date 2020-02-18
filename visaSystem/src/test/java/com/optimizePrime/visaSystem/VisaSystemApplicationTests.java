@@ -214,25 +214,27 @@ class VisaSystemApplicationTests {
 		for (Applicant applicant:appl) {
 			System.out.println(applicant);
 		}
-	}
+	}*/
 		
-	@Test
+	/*@Test
 	void testListDependant() {
 		Iterable<Dependant> depend=dependDAO.findAll();
 		assertNotNull(depend,"Dependant Not Found");
 		for (Dependant dependant:depend) {
 			System.out.println(dependant);
 		}
-	}
-	@Test
+	}*/
+	
+/*	@Test
 	void testListTravelHistory() {
 		Iterable<TravelHistory> th=travelDAO.findAll();
 		assertNotNull(th,"Travel History Not Found");
 		for (TravelHistory travelhistory:th) {
 			System.out.println(travelhistory);
 		}
-	}
-	@Test
+	}*/
+	
+	/*@Test
 	void testListApplication() {
 		Iterable<Application> appln=appDAO.findAll();
 		assertNotNull(appln,"Application Not Found");
