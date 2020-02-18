@@ -55,7 +55,7 @@ class VisaSystemApplicationTests {
 	
 	//ADDING ENTRIES
 	
-/*	@Test
+	@Test
 	void testAddApplicantDAO() {
 		Applicant applicant = new Applicant();
 		
@@ -97,9 +97,9 @@ class VisaSystemApplicationTests {
 		System.out.println(applicant);
 		//assertNotNull(applicant,"Applicant not added");
 		
-	}*/
+	}
 	
-	/*
+	
     @Test
 	void testApplicationDAOAdd() {
 		Application app = new Application();
@@ -124,24 +124,23 @@ class VisaSystemApplicationTests {
 		app.setWhatAreYouBeingPaidFor("Work project");
 		app.setWhoIsPayingYourVisit("Employer");
 		app.setWhoWillBePayingYouInUK("Client");
-		//app.setTravelHistoryRecords(travelHistoryRecords);
-		//app.setAssignedApplicant(assignedApplicant);
+		
 		
 		app = appDAO.save(app);
 		
 		System.out.println(app);
 		assertNotNull(app, "Application Not Added");
-	}*/
+	}
 	
 	
-	/*@Test
+	@Test
 	void testCountryDAOAdd() {
 		Country country = new Country();
 		//country.setCountryVisited(countryVisited);
 		//country.setAssignedTravelHistory(assignedTravelHistory);
 		
 		country = countryDAO.save(country);
-	}*/
+	}
 	
 	
 /*	@Test
