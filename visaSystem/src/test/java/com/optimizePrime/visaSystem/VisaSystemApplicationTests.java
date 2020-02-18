@@ -20,7 +20,7 @@ import com.optimizePrime.visaSystem.entities.Dependant;
 import com.optimizePrime.visaSystem.entities.EmploymentHistory;
 import com.optimizePrime.visaSystem.entities.OffendeeDetails;
 import com.optimizePrime.visaSystem.entities.TravelHistory;
-
+import com.optimizePrime.visaSystem.services.CriteriaServices;
 import com.optimizePrime.visaSystem.services.VisaSystemServices;
 
 @SpringBootTest
@@ -46,6 +46,9 @@ class VisaSystemApplicationTests {
 	
 	@Autowired
 	OffendeeDetailsDAO offendeeDAO;
+	
+	@Autowired
+	CriteriaServices critDAO;
 	
 	@Test
 	void testAddApplicant() {
@@ -203,7 +206,7 @@ class VisaSystemApplicationTests {
     
     //LIST TEST CASES
     
-    @Test
+ /*   @Test
     void testListApplicant() {
         Iterable<Applicant> appl=applicantDAO.findAll();
         assertNotNull(appl,"Applicants Not Found");
@@ -252,7 +255,7 @@ class VisaSystemApplicationTests {
             System.out.println(country);
         }
         
-
+*/
 
 	//ADDING ENTRIES
 	
@@ -521,6 +524,12 @@ class VisaSystemApplicationTests {
 	}
 */
 	
-}
+
+    @Test
+    void testVisaCriteria() {
+    String a = critDAO.criteriaForVisa(2);
+    System.out.println(a);
+    
+    }
 
 }
