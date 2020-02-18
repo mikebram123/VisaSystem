@@ -69,9 +69,17 @@ public class CriteriaServices {
 	}
 	
 	@Transactional
-	public void criteriaForVisa(Applicant applicant, int applicantId) {
+	public String criteriaForVisa(Applicant applicant, int applicantId) {
 		Applicant ap = applicantDAO.findById(applicantId).get();
-		//if(ap.)
+		if(ap.isRemainedInUKBeyondVisa()&&ap.isBreachedConditions()&&ap.isEnteredUKIllegally()) {
+			return "Rejected";
+		}
+		else if(ap.isRemainedInUKBeyondVisa()||ap.isBreachedConditions()||ap.isEnteredUKIllegally()) {
+			return "In Progress";
+		}
+		else {
+			return "Accepted";
+		}
 	}
 	
 }
