@@ -69,7 +69,7 @@ public class CriteriaServices {
 	}
 	
 	@Transactional
-	public String criteriaForVisa(Applicant applicant, int applicantId) {
+	public String criteriaForVisa(int applicantId) {
 		Applicant ap = applicantDAO.findById(applicantId).get();
 		if(ap.isRemainedInUKBeyondVisa()&&ap.isBreachedConditions()&&ap.isEnteredUKIllegally()) {
 			return "Rejected";

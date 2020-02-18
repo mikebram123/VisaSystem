@@ -20,7 +20,7 @@ import com.optimizePrime.visaSystem.entities.Dependant;
 import com.optimizePrime.visaSystem.entities.EmploymentHistory;
 import com.optimizePrime.visaSystem.entities.OffendeeDetails;
 import com.optimizePrime.visaSystem.entities.TravelHistory;
-
+import com.optimizePrime.visaSystem.services.CriteriaServices;
 import com.optimizePrime.visaSystem.services.VisaSystemServices;
 
 @SpringBootTest
@@ -46,6 +46,9 @@ class VisaSystemApplicationTests {
 	
 	@Autowired
 	OffendeeDetailsDAO offendeeDAO;
+	
+	@Autowired
+	CriteriaServices critDAO;
 	
 	@Test
 	void testAddApplicant() {
@@ -203,7 +206,7 @@ class VisaSystemApplicationTests {
     
     //LIST TEST CASES
     
-    @Test
+ /*   @Test
     void testListApplicant() {
         Iterable<Applicant> appl=applicantDAO.findAll();
         assertNotNull(appl,"Applicants Not Found");
@@ -252,7 +255,7 @@ class VisaSystemApplicationTests {
             System.out.println(country);
         }
         
-
+*/
 
 	//ADDING ENTRIES
 	
@@ -322,20 +325,16 @@ class VisaSystemApplicationTests {
 		app.setReasonWhyTherePayingForVisit("n/a");
 		app.setReceivedPublicFundsFromUK(false);
 		app.setRelyOnYouFinancially(true);
-<<<<<<< HEAD
 		app.setTotalPrice(100.50);
 		app.setWhatAreYouBeingPaidFor("Work project");
 		app.setWhoIsPayingYourVisit("Employer");
-		app.setWhoWillBePayingYouInUK("Client");
-		
-=======
+		app.setWhoWillBePayingYouInUK("Client");	
 		app.setTotalPrice(200.00);
 		app.setWhatAreYouBeingPaidFor("See family");
 		app.setWhoIsPayingYourVisit("Myself");
 		app.setWhoWillBePayingYouInUK("No one");
 		//app.setTravelHistoryRecords(travelHistoryRecords);
 		//app.setAssignedApplicant(assignedApplicant);
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 		
 		app = appDAO.save(app);
 		
@@ -343,11 +342,8 @@ class VisaSystemApplicationTests {
 		assertNotNull(app, "Application Not Added");
 	}
 	
-<<<<<<< HEAD
-	
-=======
+
 /*	
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 	@Test
 	void testCountryDAOAdd() {
 		Country country = new Country();
@@ -417,32 +413,33 @@ class VisaSystemApplicationTests {
 	//LIST TEST CASES
 
 	/*@Test
->>>>>>> branch 'master' of https://github.com/mikebram123/VisaSystem.git
 	void testListApplicant() {
 		Iterable<Applicant> appl=applicantDAO.findAll();
 		assertNotNull(appl,"Applicants Not Found");
 		for (Applicant applicant:appl) {
 			System.out.println(applicant);
 		}
-	}
+	}*/
 		
-	@Test
+	/*@Test
 	void testListDependant() {
 		Iterable<Dependant> depend=dependDAO.findAll();
 		assertNotNull(depend,"Dependant Not Found");
 		for (Dependant dependant:depend) {
 			System.out.println(dependant);
 		}
-	}
-	@Test
+	}*/
+	
+/*	@Test
 	void testListTravelHistory() {
 		Iterable<TravelHistory> th=travelDAO.findAll();
 		assertNotNull(th,"Travel History Not Found");
 		for (TravelHistory travelhistory:th) {
 			System.out.println(travelhistory);
 		}
-	}
-	@Test
+	}*/
+	
+	/*@Test
 	void testListApplication() {
 		Iterable<Application> appln=appDAO.findAll();
 		assertNotNull(appln,"Application Not Found");
@@ -469,9 +466,6 @@ class VisaSystemApplicationTests {
 		
 	}*/
 	
-	//UPDATE TEST CASE
-	
-	//DELETE TEST CASE
 	
 	//ASSIGNING OBJECTS TO OBJECTS
 	
@@ -519,6 +513,12 @@ class VisaSystemApplicationTests {
 	}
 */
 	
-}
+
+    @Test
+    void testVisaCriteria() {
+    String a = critDAO.criteriaForVisa(2);
+    System.out.println(a);
+    
+    }
 
 }
