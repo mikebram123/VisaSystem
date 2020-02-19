@@ -166,7 +166,7 @@ public class CriteriaTests {
 		applicant.setNationalIdentityNo(627381736);
 		applicant.setIssuingAuthority("British Government");
 		applicant.setEnteredUKIllegally(false);
-		applicant.setRemainedInUKBeyondVisa(true);
+		applicant.setRemainedInUKBeyondVisa(false);
 		applicant.setBreachedConditions(false);
 		applicant.setBeenInUkPast10Years(true);
 
@@ -198,13 +198,13 @@ public class CriteriaTests {
 
 	//@Test
 	void testAssignDependantToApplicantAcceptedAfter10() {
-		Dependant dep = visaSrv.assignDependantsToApplicant(27,28);
+		Dependant dep = visaSrv.assignDependantsToApplicant(23,22);
 		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 	}
 
 	//@Test
 	void testPassVisaCriteriaAcceptedAfter10() {
-		System.out.println(critDAO.criteriaForVisa(28));  //doesnt work
+		System.out.println(critDAO.criteriaForVisa(22));  //doesnt work
 	}
 	
 	
@@ -352,13 +352,13 @@ public class CriteriaTests {
 
 		//@Test
 		void testAssignDependantToApplicantpt2() {
-			Dependant dep = visaSrv.assignDependantsToApplicant(25,26);
+			Dependant dep = visaSrv.assignDependantsToApplicant(20,21);
 			assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 		}
 
 		//@Test
 		void testPassVisaCriteriapt2() {
-			System.out.println(critDAO.criteriaForVisa(26));
+			System.out.println(critDAO.criteriaForVisa(21));
 		}
 		
 		
@@ -428,13 +428,13 @@ public class CriteriaTests {
 
 		//@Test
 		void testAssignDependantToApplicantRejected() {
-			Dependant dep = visaSrv.assignDependantsToApplicant(29,30);
+			Dependant dep = visaSrv.assignDependantsToApplicant(24,25);
 			assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 		}
 
-		@Test
+		//@Test
 		void testPassVisaCriteriaRejected() {
-			System.out.println(critDAO.criteriaForVisa(30));
+			System.out.println(critDAO.criteriaForVisa(25));
 		}
 		
 		
