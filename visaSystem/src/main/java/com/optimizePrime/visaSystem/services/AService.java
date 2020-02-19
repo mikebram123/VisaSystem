@@ -23,6 +23,7 @@ public class AService {
 			Date date = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss").parse(Date); 
 			//this gets the current date; as in todays date.
 			Date currentDate = new Date(); 
+			System.out.println(currentDate);
 //The 'formula' to get the years between dates
 			long diffMil = currentDate.getTime() - date.getTime(); //get miliseconds between dates
 			long days = TimeUnit.MILLISECONDS.toDays(diffMil); //gets the number of days between dates
@@ -32,13 +33,13 @@ public class AService {
 			e.printStackTrace();
 		}
 
-		return years >= 10; //return date if its less than 10years or equals to ten years.
+		return years <= 10; //return date if its less than 10years or equals to ten years.
 	}
 	
 	public static void main(String[]args)
 	{
 
-		String exampledate = "13-05-2010T10:20:00";
+		String exampledate = "20-07-2014T10:20:00";
 		
 		System.out.println(inLast10Years(exampledate));//makes a call from method
 		

@@ -53,22 +53,32 @@ public class CriteriaServices {
 	public boolean isApplicantOnCriminalDatabase(int applicantId) {
 		Applicant ap = applicantDAO.findById(applicantId).get();
 		long passportNo = ap.getPassportNo();
-		List<OffendeeDetails> db = listAll(passportNo);
-		if(db.isEmpty()) {
+		
+		OffendeeDetails offendeeDetails=null;
+		try {
+			offendeeDetails= listAll(passportNo).get(0);
+		
+/*		if(db.isEmpty()) {
 			System.out.println("Applicant is not on Mongo database");
 			return false;
 		}
-		else {
-			for (OffendeeDetails offendeeDetails : db) {
-				String dateOffence = offendeeDetails.getDate();
-				if(inLast10Years(dateOffence)) {
-					System.out.println("Applicant is on Mongo database and within 10 years");
-					return true;
-				}
+*/			String dateOffence = offendeeDetails.getDate();
+			
+			System.out.println(dateOffence);
+			System.out.println(inLast10Years(dateOffence));
+			
+			if(inLast10Years(dateOffence)) {
+				System.out.println("Applicant is on Mongo database and within 10 years");
+				return true;	
 			}
+			else {
+				System.out.println("Applicant is on Mongo database and offence commited after 10 years");
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-		System.out.println("Applicant is on Mongo database and offence commited after 10 years");
-		return false;
 	}
 	
 	@Transactional
@@ -87,8 +97,7 @@ public class CriteriaServices {
 	}
 	
 	@Transactional
-	public String checkApplicationProgress(int applicationId) {
-		
+	public String checkApplicationProgress(int applicationId) {	
 		return "Accepted";
 	}
 	
@@ -107,6 +116,7 @@ public class CriteriaServices {
 			}
 			else if(isApplicantOnCriminalDatabase(applicantId)||isDependantOnCriminalDatabase(applicantId)) {
 				return "In Progress";
+				
 			}
 		}
 		return "Accepted";
@@ -122,7 +132,7 @@ public class CriteriaServices {
 		double years = 0;
 		try {
 			//this converts DataBase date from String to Date Object
-			Date date = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss").parse(Date); 
+			Date date = new SimpleDateFormat("dd-MM-yyyy").parse(Date); 
 			//this gets the current date; as in todays date.
 			Date currentDate = new Date(); 
 //The 'formula' to get the years between dates
@@ -134,7 +144,7 @@ public class CriteriaServices {
 			e.printStackTrace();
 		}
 
-		return years >= 10; //return date if its less than 10years or equals to ten years.
+		return years <= 10; //return date if its less than 10years or equals to ten years.
 	}
 	
 }
