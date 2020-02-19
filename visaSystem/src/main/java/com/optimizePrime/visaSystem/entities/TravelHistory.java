@@ -132,11 +132,11 @@ public class TravelHistory {
 	
 	@Override
 	public String toString() {
-		return "TravelHistory [travelHistoryId=" + travelHistoryId + ", countryRecords=" + countryRecords
+		return "TravelHistory [travelHistoryId=" + travelHistoryId 
 				+ ", timesVisted=" + timesVisted + ", refusedVisa=" + refusedVisa + ", refusedEntryAtBorder="
 				+ refusedEntryAtBorder + ", refusedPermissionToStay=" + refusedPermissionToStay + ", deported="
 				+ deported + ", removed=" + removed + ", requiredToLeave=" + requiredToLeave + ", bannedFromEntry="
-				+ bannedFromEntry + ", assignedApplication=" + assignedApplication + "]";
+				+ bannedFromEntry  + "]";
 	}
 	@Override
 	public int hashCode() {

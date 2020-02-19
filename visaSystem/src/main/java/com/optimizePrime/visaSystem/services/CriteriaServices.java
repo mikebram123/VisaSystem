@@ -1,5 +1,6 @@
 package com.optimizePrime.visaSystem.services;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.transaction.Transactional;
@@ -12,9 +13,11 @@ import com.optimizePrime.visaSystem.dao.ApplicationJPADAO;
 import com.optimizePrime.visaSystem.dao.CountryJPADAO;
 import com.optimizePrime.visaSystem.dao.DependantJPADAO;
 import com.optimizePrime.visaSystem.dao.EmploymentHistoryJPADAO;
+import com.optimizePrime.visaSystem.dao.OffendeeDetailsDAO;
 import com.optimizePrime.visaSystem.dao.TravelHistoryJPADAO;
 import com.optimizePrime.visaSystem.entities.Applicant;
 import com.optimizePrime.visaSystem.entities.Dependant;
+import com.optimizePrime.visaSystem.entities.OffendeeDetails;
 
 @Component
 public class CriteriaServices {
@@ -37,6 +40,9 @@ public class CriteriaServices {
 	
 	@Autowired
 	EmploymentHistoryJPADAO emphisDAO;
+	
+	@Autowired
+	OffendeeDetailsDAO dnaDAO;
 	
 	@Transactional
 	public boolean isApplicantOnCriminalDatabase(Applicant applicant,int applicantId) {
@@ -69,7 +75,7 @@ public class CriteriaServices {
 	}
 	
 	@Transactional
-	public String criteriaForVisa(Applicant applicant, int applicantId) {
+	public String criteriaForVisa(int applicantId) {
 		Applicant ap = applicantDAO.findById(applicantId).get();
 		if(ap.isRemainedInUKBeyondVisa()&&ap.isBreachedConditions()&&ap.isEnteredUKIllegally()) {
 			return "Rejected";
@@ -80,6 +86,16 @@ public class CriteriaServices {
 		else {
 			return "Accepted";
 		}
+	}
+	
+	public void listAll() {
+		List<OffendeeDetails> db = dnaDAO.findByPassportNo(986742241);
+		for (OffendeeDetails offendeeDetails : db) {
+			String date = offendeeDetails.getDate();
+			System.out.println(date);
+		}
+		
+		
 	}
 	
 }
