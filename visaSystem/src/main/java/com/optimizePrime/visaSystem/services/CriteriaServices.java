@@ -67,7 +67,7 @@ public class CriteriaServices {
 				}
 			}
 		}
-		System.out.println("Applicant is on Mongo database and within 10 years");
+		System.out.println("Applicant is on Mongo database and offence commited after 10 years");
 		return false;
 	}
 	
