@@ -1,7 +1,11 @@
 package com.optimizePrime.visaSystem.services;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import javax.transaction.Transactional;
 
@@ -44,28 +48,42 @@ public class CriteriaServices {
 	@Autowired
 	OffendeeDetailsDAO dnaDAO;
 	
+	
 	@Transactional
-	public boolean isApplicantOnCriminalDatabase(Applicant applicant,int applicantId) {
+	public boolean isApplicantOnCriminalDatabase(int applicantId) {
 		Applicant ap = applicantDAO.findById(applicantId).get();
 		long passportNo = ap.getPassportNo();
-		//query mongoDB with passportNo
-		//if it is return true
+		List<OffendeeDetails> db = listAll(passportNo);
+		if(db.isEmpty()) {
+			System.out.println("Applicant is not on Mongo database");
+			return false;
+		}
+		else {
+			for (OffendeeDetails offendeeDetails : db) {
+				String dateOffence = offendeeDetails.getDate();
+				if(inLast10Years(dateOffence)) {
+					System.out.println("Applicant is on Mongo database and within 10 years");
+					return true;
+				}
+			}
+		}
+		System.out.println("Applicant is on Mongo database and within 10 years");
 		return false;
-		
 	}
 	
 	@Transactional
-	public boolean isDependantOnCriminalDatabase(Applicant applicant, int applicantId) {
+	public boolean isDependantOnCriminalDatabase(int applicantId) {
 		Applicant ap = applicantDAO.findById(applicantId).get();
-		Set<Dependant> dependants = applicant.getDependantsRecords();
-//		for (Dependant dependant : dependants) {
-//			query mongoDB for dependant with name
-//			if(dependant Exists In MongoDB) {
-//				break;
-//				return true;
-//			}	
-//		}
-		return false;	
+		Set<Dependant> dependants = ap.getDependantsRecords();
+		for (Dependant dependant : dependants) {
+			long depPNO = dependant.getPassportNo();
+			if(listAll(depPNO).isEmpty()){
+				System.out.println("Dependants are not in Mongo Database");
+				return false;
+			}
+		}
+		System.out.println("Dependants are in Mongo Database");
+		return true;	
 	}
 	
 	@Transactional
@@ -84,18 +102,39 @@ public class CriteriaServices {
 			return "In Progress";
 		}
 		else {
-			return "Accepted";
+			if(isApplicantOnCriminalDatabase(applicantId)&&isDependantOnCriminalDatabase(applicantId)) {
+				return "Rejected";
+			}
+			else if(isApplicantOnCriminalDatabase(applicantId)||isDependantOnCriminalDatabase(applicantId)) {
+				return "In Progress";
+			}
 		}
+		return "Accepted";
 	}
 	
-	public void listAll() {
-		List<OffendeeDetails> db = dnaDAO.findByPassportNo(986742241);
-		for (OffendeeDetails offendeeDetails : db) {
-			String date = offendeeDetails.getDate();
-			System.out.println(date);
+	public List<OffendeeDetails> listAll(long passportNo) {
+		List<OffendeeDetails> db = dnaDAO.findByPassportNo(passportNo);
+		return db;
 		}
-		
-		
+	
+	
+	public static boolean inLast10Years(String Date) {//parameter using to find data in Last 10years
+		double years = 0;
+		try {
+			//this converts DataBase date from String to Date Object
+			Date date = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss").parse(Date); 
+			//this gets the current date; as in todays date.
+			Date currentDate = new Date(); 
+//The 'formula' to get the years between dates
+			long diffMil = currentDate.getTime() - date.getTime(); //get miliseconds between dates
+			long days = TimeUnit.MILLISECONDS.toDays(diffMil); //gets the number of days between dates
+			years = days / 365.25; //gets the number of years between dates
+			
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		return years >= 10; //return date if its less than 10years or equals to ten years.
 	}
 	
 }

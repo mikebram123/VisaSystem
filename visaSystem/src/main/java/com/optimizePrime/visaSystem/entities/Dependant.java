@@ -39,6 +39,19 @@ public class Dependant {
 	@FormParam("countryOfNationality")
 	private String countryOfNationality;
 	
+	@FormParam("passportNo")
+	private long passportNo;
+	
+	public long getPassportNo() {
+		return passportNo;
+	}
+
+
+
+	public void setPassportNo(long passportNo) {
+		this.passportNo = passportNo;
+	}
+
 	private Applicant assignedApplicant;
 	
 	public Dependant() {
@@ -62,12 +75,14 @@ public class Dependant {
 
 
 
+
+
 	@Override
 	public String toString() {
 		return "Dependant [dependantId=" + dependantId + ", familyName=" + familyName + ", givenNames=" + givenNames
 				+ ", dateOfBirth=" + dateOfBirth + ", relationshipToYou=" + relationshipToYou
 				+ ", alwaysHadSameNationality=" + alwaysHadSameNationality + ", countryOfNationality="
-				+ countryOfNationality + ", assignedApplicant=" + assignedApplicant + "]";
+				+ countryOfNationality + ", passportNo=" + passportNo + "]";
 	}
 
 
