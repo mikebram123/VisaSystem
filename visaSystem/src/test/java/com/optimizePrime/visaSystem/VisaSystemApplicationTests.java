@@ -160,14 +160,16 @@ class VisaSystemApplicationTests {
 //        depend.setRelationshipToYou(dependantRelationship.GODPARENT);
 //        depend.setCountryOfNationality("United States");
 //        depend.setAlwaysHadSameNationality(true);
-//        
+//        depend.setPassportNo(111111);
+//		 
+//       
 //        depend = dependDAO.save(depend);
 //        
 //        System.out.println(depend);
 //        assertNotNull(depend, "Dependent Not Added");
 //        
 //    }
-//    
+    
 //    
 //    @Test
 //    void testEmployementHistoryDAOAdd() {

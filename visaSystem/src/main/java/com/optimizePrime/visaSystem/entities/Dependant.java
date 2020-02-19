@@ -42,15 +42,7 @@ public class Dependant {
 	@FormParam("passportNo")
 	private long passportNo;
 	
-	public long getPassportNo() {
-		return passportNo;
-	}
-
-
-
-	public void setPassportNo(long passportNo) {
-		this.passportNo = passportNo;
-	}
+	
 
 	private Applicant assignedApplicant;
 	
@@ -149,6 +141,15 @@ public class Dependant {
 	
 	public void setCountryOfNationality(String countryOfNationality) {
 		this.countryOfNationality = countryOfNationality;
+	}
+	
+	@Column(name="passportNo")
+	public long getPassportNo() {
+		return passportNo;
+	}
+
+	public void setPassportNo(long passportNo) {
+		this.passportNo = passportNo;
 	}
 	
 	@Override
