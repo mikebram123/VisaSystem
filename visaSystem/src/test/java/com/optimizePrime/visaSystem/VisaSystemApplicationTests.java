@@ -310,4 +310,16 @@ class VisaSystemApplicationTests {
     
     }
 
+//    @Test
+//    void testVisaCriteria() {
+//    String a = critDAO.criteriaForVisa(2);
+//    System.out.println(a);
+//    
+//    }
+	
+	@Test
+	void testPrintDateFromConvict() {
+		critDAO.listAll();
+	}
+
 }

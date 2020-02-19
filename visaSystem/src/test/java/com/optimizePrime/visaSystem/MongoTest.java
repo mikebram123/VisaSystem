@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCursor;
 import com.optimizePrime.visaSystem.dao.OffendeeDetailsDAO;
 import com.optimizePrime.visaSystem.entities.OffendeeDetails;
 	
@@ -22,7 +24,7 @@ class MongoTest {
     	od.setForename("Martin");
     	od.setSurname("Leonard");
     	od.setAge(58);
-    	od.setCrime("Sexual Abuse");
+    	od.setCrime("Infant Sexual Abuse");
     	od.setDate("03-07-2017");
     	od.setLocation("Londonderry");
     	od.setGender("Male");
@@ -40,7 +42,7 @@ class MongoTest {
     	od.setForename("Brian");
     	od.setSurname("Macduff");
     	od.setAge(79);
-    	od.setCrime("Child Sex Abuse");
+    	od.setCrime("Child Sex Abuse whilst cross dressing");
     	od.setDate("03-05-2018");
     	od.setLocation("Shrewsbury");
     	od.setGender("Male");
@@ -111,7 +113,7 @@ class MongoTest {
     	od.setForename("Patrick");
     	od.setSurname("Mackay");
     	od.setAge(39);
-    	od.setCrime("Mass Murder");
+    	od.setCrime("Mass Murder of Infant Children");
     	od.setDate("09-04-2019");
     	od.setLocation("London");
     	od.setGender("Male");
@@ -147,7 +149,7 @@ class MongoTest {
     	od.setForename("Harry");
     	od.setSurname("Leigh");
     	od.setAge(19);
-    	od.setCrime("Mass Murderer");
+    	od.setCrime("Mass Murder");
     	od.setDate("20-04-2019");
     	od.setLocation("Hastings");
     	od.setGender("Male");
@@ -164,7 +166,7 @@ class MongoTest {
     	od.setForename("Harry");
     	od.setSurname("Smith");
     	od.setAge(19);
-    	od.setCrime("Mass Murderer");
+    	od.setCrime("Mass Murder");
     	od.setDate("20-04-2019");
     	od.setLocation("Hastings");
     	od.setGender("Male");
@@ -181,7 +183,7 @@ class MongoTest {
     	od.setForename("Lee");
     	od.setSurname("Smith");
     	od.setAge(44);
-    	od.setCrime("Indecent Images");
+    	od.setCrime("Indecent Imagery");
     	od.setDate("20-10-2016");
     	od.setLocation("Aylestone");
     	od.setGender("Male");
@@ -453,7 +455,7 @@ class MongoTest {
     	od.setForename("Christopher");
     	od.setSurname("Randall");
     	od.setAge(38);
-    	od.setCrime("Indecent Images");
+    	od.setCrime("Indecent Imagery");
     	od.setDate("19-01-2017");
     	od.setLocation("Kilmarnock");
     	od.setGender("Male");
@@ -487,7 +489,7 @@ class MongoTest {
     	od.setForename("Father Francis");
     	od.setSurname("Leonard");
     	od.setAge(58);
-    	od.setCrime("Child Sex Offences");
+    	od.setCrime("Child/Animal Sex Offences");
     	od.setDate("19-07-2018");
     	od.setLocation("Londonderry");
     	od.setGender("Male");
@@ -514,7 +516,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    @Test
+    //@Test
     void testAddOffendeeDetailsDocument29() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(986742241l);
