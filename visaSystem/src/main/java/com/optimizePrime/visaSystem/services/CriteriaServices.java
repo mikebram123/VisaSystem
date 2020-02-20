@@ -56,13 +56,8 @@ public class CriteriaServices {
 		
 		OffendeeDetails offendeeDetails=null;
 		try {
-			offendeeDetails= listAll(passportNo).get(0);
-		
-/*		if(db.isEmpty()) {
-			System.out.println("Applicant is not on Mongo database");
-			return false;
-		}
-*/			String dateOffence = offendeeDetails.getDate();
+			offendeeDetails= listAll(passportNo).get(0);		
+			String dateOffence = offendeeDetails.getDate();
 			
 			System.out.println(dateOffence);
 			System.out.println(inLast10Years(dateOffence));
@@ -102,24 +97,30 @@ public class CriteriaServices {
 	}
 	
 	@Transactional
-	public String criteriaForVisa(int applicantId) {
+	public void criteriaForVisa(int applicantId) {
 		Applicant ap = applicantDAO.findById(applicantId).get();
 		if(ap.isRemainedInUKBeyondVisa()&&ap.isBreachedConditions()&&ap.isEnteredUKIllegally()) {
-			return "Rejected";
+			System.out.println("Rejected");
+			ap.setCurrentApplicationStatus("Rejected");
 		}
 		else if(ap.isRemainedInUKBeyondVisa()||ap.isBreachedConditions()||ap.isEnteredUKIllegally()) {
-			return "In Progress";
+			System.out.println("In Progress");
+			ap.setCurrentApplicationStatus("In Progress");
 		}
 		else {
 			if(isApplicantOnCriminalDatabase(applicantId)&&isDependantOnCriminalDatabase(applicantId)) {
-				return "Rejected";
+				System.out.println("Rejected");
+				ap.setCurrentApplicationStatus("Rejected");
 			}
 			else if(isApplicantOnCriminalDatabase(applicantId)||isDependantOnCriminalDatabase(applicantId)) {
-				return "In Progress";
+				System.out.println("In Progress");
+				ap.setCurrentApplicationStatus("In Progress");
 				
 			}
+			else {
+				ap.setCurrentApplicationStatus("Accepted");
+			}
 		}
-		return "Accepted";
 	}
 	
 	public List<OffendeeDetails> listAll(long passportNo) {
@@ -135,7 +136,7 @@ public class CriteriaServices {
 			Date date = new SimpleDateFormat("dd-MM-yyyy").parse(Date); 
 			//this gets the current date; as in todays date.
 			Date currentDate = new Date(); 
-//The 'formula' to get the years between dates
+			//The 'formula' to get the years between dates
 			long diffMil = currentDate.getTime() - date.getTime(); //get miliseconds between dates
 			long days = TimeUnit.MILLISECONDS.toDays(diffMil); //gets the number of days between dates
 			years = days / 365.25; //gets the number of years between dates
