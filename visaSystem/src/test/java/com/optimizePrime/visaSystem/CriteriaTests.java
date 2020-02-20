@@ -57,7 +57,7 @@ public class CriteriaTests {
 
 
 	//This Guy Should Pass Accepted FOR DEMO NOT ON DATABASE DEPENDANT NOT ON DATABASE ANSWERED QUESTIONS CORRECTLY
-	// @Test
+	//@Test
 	void testAddApplicantDAOAccepted() {
 		Applicant applicant = new Applicant();
 
@@ -122,16 +122,16 @@ public class CriteriaTests {
 
 	//@Test
 	void testAssignDependantToApplicantAccepted() {
-		Dependant dep = visaSrv.assignDependantsToApplicant(13,12);
+		Dependant dep = visaSrv.assignDependantsToApplicant(34,35);
 		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 	}
 
 	//@Test
 	void testPassVisaCriteriaAccepted() {
-		System.out.println(critDAO.criteriaForVisa(12));
+		critDAO.criteriaForVisa(35);
 	}
-	
-	
+
+
 	//This person is in the criminal database and committed an offence after 10 years => therefore in accepted
 	//@Test
 	void testAddApplicantDAOAcceptedAfter10() {
@@ -204,11 +204,11 @@ public class CriteriaTests {
 
 	//@Test
 	void testPassVisaCriteriaAcceptedAfter10() {
-		System.out.println(critDAO.criteriaForVisa(22));  							//doesnt work
+		critDAO.criteriaForVisa(22);  							//doesnt work
 	}
-	
-	
-	
+
+
+
 
 	//This person has entered incorrect question but only one => therefore in Progress
 	//@Test
@@ -282,237 +282,237 @@ public class CriteriaTests {
 
 	//@Test
 	void testPassVisaCriteria() {
-		System.out.println(critDAO.criteriaForVisa(14));
+		critDAO.criteriaForVisa(14);
 	}
-	
-	
+
+
 	//This person is in the criminal database but not his dependant => therefore in Progress
-		//@Test
-		void testAddApplicantDAOInProgresspt2() {
-			Applicant applicant = new Applicant();
+	//@Test
+	void testAddApplicantDAOInProgresspt2() {
+		Applicant applicant = new Applicant();
 
-			applicant.setName("Martin Leonard");
-			applicant.setPassportNo(000376763l);
-			applicant.setCoutryOfNationality("UK");
-			applicant.setDatOfBirth("01/0/1987");
-			applicant.setGender(Gender.MALE);
-			applicant.setContactEmail("andrew123@gmail.com");
-			applicant.setContactLanguage("English");
-			applicant.setPlaceOfBirth("Sheffield");
-			applicant.setCountryOfBirth("England");
-			applicant.setRelationshipStatus(RelationshipStatus.MARRIED);
-			applicant.setHaveEmail(true);
-			applicant.setWhoDoesThisEmailBelongTo("Andrew");
-			applicant.setFamilyName("Fernández");
-			applicant.setGivenName("Crooks");
-			applicant.setCanBeContactedByTelephone(true);
-			applicant.setTypeOfTelephone(TypeOfTelephone.MOBILE);
-			applicant.setForUseWhileOutsideOfUK(true);
-			applicant.setForUseWhileInsideOfUK(true);
-			applicant.setTelephone(07236152123);
-			applicant.setRecievedUKMedicalTreatment(true);
-			applicant.setHaveUKDrivingLicense(true);
-			applicant.setAddress("123 Howard Street 8SH 9NS");
-			applicant.setOwnershipStatusOfHome("Owned");
-			applicant.setHowLongHaveYouLivedAtThisAddress(7.11);
-			applicant.setThisCorrespondenceAddress(true);
-			applicant.setHoldAnyOtherCItizenship(true);
-			applicant.setNationalIdentityNo(627381736);
-			applicant.setIssuingAuthority("British Government");
-			applicant.setEnteredUKIllegally(false);
-			applicant.setRemainedInUKBeyondVisa(true);
-			applicant.setBreachedConditions(false);
-			applicant.setBeenInUkPast10Years(true);
-
-
-			applicant=applicantDAO.save(applicant);
-			System.out.println(applicant);
-			//assertNotNull(applicant,"Applicant not added");
-
-		}
+		applicant.setName("Martin Leonard");
+		applicant.setPassportNo(000376763l);
+		applicant.setCoutryOfNationality("UK");
+		applicant.setDatOfBirth("01/0/1987");
+		applicant.setGender(Gender.MALE);
+		applicant.setContactEmail("andrew123@gmail.com");
+		applicant.setContactLanguage("English");
+		applicant.setPlaceOfBirth("Sheffield");
+		applicant.setCountryOfBirth("England");
+		applicant.setRelationshipStatus(RelationshipStatus.MARRIED);
+		applicant.setHaveEmail(true);
+		applicant.setWhoDoesThisEmailBelongTo("Andrew");
+		applicant.setFamilyName("Fernández");
+		applicant.setGivenName("Crooks");
+		applicant.setCanBeContactedByTelephone(true);
+		applicant.setTypeOfTelephone(TypeOfTelephone.MOBILE);
+		applicant.setForUseWhileOutsideOfUK(true);
+		applicant.setForUseWhileInsideOfUK(true);
+		applicant.setTelephone(07236152123);
+		applicant.setRecievedUKMedicalTreatment(true);
+		applicant.setHaveUKDrivingLicense(true);
+		applicant.setAddress("123 Howard Street 8SH 9NS");
+		applicant.setOwnershipStatusOfHome("Owned");
+		applicant.setHowLongHaveYouLivedAtThisAddress(7.11);
+		applicant.setThisCorrespondenceAddress(true);
+		applicant.setHoldAnyOtherCItizenship(true);
+		applicant.setNationalIdentityNo(627381736);
+		applicant.setIssuingAuthority("British Government");
+		applicant.setEnteredUKIllegally(false);
+		applicant.setRemainedInUKBeyondVisa(true);
+		applicant.setBreachedConditions(false);
+		applicant.setBeenInUkPast10Years(true);
 
 
-		//@Test
-		void testDependantDAOAddInProgresspt2() {
-			Dependant depend = new Dependant();
-			depend.setDateOfBirth("14/08/1994");
-			depend.setGivenNames("John Wayne");
-			depend.setFamilyName("Wayne");
-			depend.setRelationshipToYou(dependantRelationship.GODPARENT);
-			depend.setCountryOfNationality("United States");
-			depend.setAlwaysHadSameNationality(true);
-			depend.setPassportNo(111111);
+		applicant=applicantDAO.save(applicant);
+		System.out.println(applicant);
+		//assertNotNull(applicant,"Applicant not added");
 
-			depend = dependDAO.save(depend);
-
-			System.out.println(depend);
-			assertNotNull(depend, "Dependent Not Added");
-
-		}
-
-		//@Test
-		void testAssignDependantToApplicantpt2() {
-			Dependant dep = visaSrv.assignDependantsToApplicant(20,21);
-			assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
-		}
-
-		//@Test
-		void testPassVisaCriteriapt2() {
-			System.out.println(critDAO.criteriaForVisa(21));
-		}
-		
-		
-		//This person has entered incorrect questions  => therefore in rejected
-		//@Test
-		void testAddApplicantDAORejected() {
-			Applicant applicant = new Applicant();
-
-			applicant.setName("jammy dodger");
-			applicant.setPassportNo(111173522);
-			applicant.setCoutryOfNationality("UK");
-			applicant.setDatOfBirth("01/0/1987");
-			applicant.setGender(Gender.MALE);
-			applicant.setContactEmail("andrew123@gmail.com");
-			applicant.setContactLanguage("English");
-			applicant.setPlaceOfBirth("Sheffield");
-			applicant.setCountryOfBirth("England");
-			applicant.setRelationshipStatus(RelationshipStatus.MARRIED);
-			applicant.setHaveEmail(true);
-			applicant.setWhoDoesThisEmailBelongTo("Andrew");
-			applicant.setFamilyName("Fernández");
-			applicant.setGivenName("Crooks");
-			applicant.setCanBeContactedByTelephone(true);
-			applicant.setTypeOfTelephone(TypeOfTelephone.MOBILE);
-			applicant.setForUseWhileOutsideOfUK(true);
-			applicant.setForUseWhileInsideOfUK(true);
-			applicant.setTelephone(07236152123);
-			applicant.setRecievedUKMedicalTreatment(true);
-			applicant.setHaveUKDrivingLicense(true);
-			applicant.setAddress("123 Howard Street 8SH 9NS");
-			applicant.setOwnershipStatusOfHome("Owned");
-			applicant.setHowLongHaveYouLivedAtThisAddress(7.11);
-			applicant.setThisCorrespondenceAddress(true);
-			applicant.setHoldAnyOtherCItizenship(true);
-			applicant.setNationalIdentityNo(627381736);
-			applicant.setIssuingAuthority("British Government");
-			applicant.setEnteredUKIllegally(true);
-			applicant.setRemainedInUKBeyondVisa(true);
-			applicant.setBreachedConditions(true);
-			applicant.setBeenInUkPast10Years(true);
+	}
 
 
-			applicant=applicantDAO.save(applicant);
-			System.out.println(applicant);
-			//assertNotNull(applicant,"Applicant not added");
+	//@Test
+	void testDependantDAOAddInProgresspt2() {
+		Dependant depend = new Dependant();
+		depend.setDateOfBirth("14/08/1994");
+		depend.setGivenNames("John Wayne");
+		depend.setFamilyName("Wayne");
+		depend.setRelationshipToYou(dependantRelationship.GODPARENT);
+		depend.setCountryOfNationality("United States");
+		depend.setAlwaysHadSameNationality(true);
+		depend.setPassportNo(111111);
 
-		}
+		depend = dependDAO.save(depend);
 
+		System.out.println(depend);
+		assertNotNull(depend, "Dependent Not Added");
 
-		//@Test
-		void testDependantDAORejected() {
-			Dependant depend = new Dependant();
-			depend.setDateOfBirth("14/08/1994");
-			depend.setGivenNames("Donna Wellington");
-			depend.setFamilyName("Wellington");
-			depend.setRelationshipToYou(dependantRelationship.GODPARENT);
-			depend.setCountryOfNationality("United States");
-			depend.setAlwaysHadSameNationality(true);
-			depend.setPassportNo(111111);
+	}
 
-			depend = dependDAO.save(depend);
+	//@Test
+	void testAssignDependantToApplicantpt2() {
+		Dependant dep = visaSrv.assignDependantsToApplicant(20,21);
+		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
+	}
 
-			System.out.println(depend);
-			assertNotNull(depend, "Dependent Not Added");
-
-		}
-
-		//@Test
-		void testAssignDependantToApplicantRejected() {
-			Dependant dep = visaSrv.assignDependantsToApplicant(24,25);
-			assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
-		}
-
-		//@Test
-		void testPassVisaCriteriaRejected() {
-			System.out.println(critDAO.criteriaForVisa(25));
-		}
-		
-		
-		//This person is in the criminal database and his dependant is => therefore in rejected
-				//@Test
-				void testAddApplicantDAORejectedForBothDependantApplicant() {
-					Applicant applicant = new Applicant();
-
-					applicant.setName("Should be rejected");
-					applicant.setPassportNo(00376000l);
-					applicant.setCoutryOfNationality("UK");
-					applicant.setDatOfBirth("01/0/1987");
-					applicant.setGender(Gender.MALE);
-					applicant.setContactEmail("andrew123@gmail.com");
-					applicant.setContactLanguage("English");
-					applicant.setPlaceOfBirth("Sheffield");
-					applicant.setCountryOfBirth("England");
-					applicant.setRelationshipStatus(RelationshipStatus.MARRIED);
-					applicant.setHaveEmail(true);
-					applicant.setWhoDoesThisEmailBelongTo("Andrew");
-					applicant.setFamilyName("Fernández");
-					applicant.setGivenName("Crooks");
-					applicant.setCanBeContactedByTelephone(true);
-					applicant.setTypeOfTelephone(TypeOfTelephone.MOBILE);
-					applicant.setForUseWhileOutsideOfUK(true);
-					applicant.setForUseWhileInsideOfUK(true);
-					applicant.setTelephone(07236152123);
-					applicant.setRecievedUKMedicalTreatment(true);
-					applicant.setHaveUKDrivingLicense(true);
-					applicant.setAddress("123 Howard Street 8SH 9NS");
-					applicant.setOwnershipStatusOfHome("Owned");
-					applicant.setHowLongHaveYouLivedAtThisAddress(7.11);
-					applicant.setThisCorrespondenceAddress(true);
-					applicant.setHoldAnyOtherCItizenship(true);
-					applicant.setNationalIdentityNo(627381736);
-					applicant.setIssuingAuthority("British Government");
-					applicant.setEnteredUKIllegally(false);
-					applicant.setRemainedInUKBeyondVisa(false);
-					applicant.setBreachedConditions(false);
-					applicant.setBeenInUkPast10Years(true);
+	//@Test
+	void testPassVisaCriteriapt2() {
+		critDAO.criteriaForVisa(21);
+	}
 
 
-					applicant=applicantDAO.save(applicant);
-					System.out.println(applicant);
-					//assertNotNull(applicant,"Applicant not added");
+	//This person has entered incorrect questions  => therefore in rejected
+	//@Test
+	void testAddApplicantDAORejected() {
+		Applicant applicant = new Applicant();
 
-				}
+		applicant.setName("jammy dodger");
+		applicant.setPassportNo(111173522);
+		applicant.setCoutryOfNationality("UK");
+		applicant.setDatOfBirth("01/0/1987");
+		applicant.setGender(Gender.MALE);
+		applicant.setContactEmail("andrew123@gmail.com");
+		applicant.setContactLanguage("English");
+		applicant.setPlaceOfBirth("Sheffield");
+		applicant.setCountryOfBirth("England");
+		applicant.setRelationshipStatus(RelationshipStatus.MARRIED);
+		applicant.setHaveEmail(true);
+		applicant.setWhoDoesThisEmailBelongTo("Andrew");
+		applicant.setFamilyName("Fernández");
+		applicant.setGivenName("Crooks");
+		applicant.setCanBeContactedByTelephone(true);
+		applicant.setTypeOfTelephone(TypeOfTelephone.MOBILE);
+		applicant.setForUseWhileOutsideOfUK(true);
+		applicant.setForUseWhileInsideOfUK(true);
+		applicant.setTelephone(07236152123);
+		applicant.setRecievedUKMedicalTreatment(true);
+		applicant.setHaveUKDrivingLicense(true);
+		applicant.setAddress("123 Howard Street 8SH 9NS");
+		applicant.setOwnershipStatusOfHome("Owned");
+		applicant.setHowLongHaveYouLivedAtThisAddress(7.11);
+		applicant.setThisCorrespondenceAddress(true);
+		applicant.setHoldAnyOtherCItizenship(true);
+		applicant.setNationalIdentityNo(627381736);
+		applicant.setIssuingAuthority("British Government");
+		applicant.setEnteredUKIllegally(true);
+		applicant.setRemainedInUKBeyondVisa(true);
+		applicant.setBreachedConditions(true);
+		applicant.setBeenInUkPast10Years(true);
 
 
-				//@Test
-				void testDependantDAOAddRejectedPT2() {
-					Dependant depend = new Dependant();
-					depend.setDateOfBirth("14/08/1994");
-					depend.setGivenNames("Lee Smith");
-					depend.setFamilyName("Smith");
-					depend.setRelationshipToYou(dependantRelationship.GODPARENT);
-					depend.setCountryOfNationality("United States");
-					depend.setAlwaysHadSameNationality(true);
-					depend.setPassportNo(456376090l);
+		applicant=applicantDAO.save(applicant);
+		System.out.println(applicant);
+		//assertNotNull(applicant,"Applicant not added");
 
-					depend = dependDAO.save(depend);
+	}
 
-					System.out.println(depend);
-					assertNotNull(depend, "Dependent Not Added");
 
-				}
+	//@Test
+	void testDependantDAORejected() {
+		Dependant depend = new Dependant();
+		depend.setDateOfBirth("14/08/1994");
+		depend.setGivenNames("Donna Wellington");
+		depend.setFamilyName("Wellington");
+		depend.setRelationshipToYou(dependantRelationship.GODPARENT);
+		depend.setCountryOfNationality("United States");
+		depend.setAlwaysHadSameNationality(true);
+		depend.setPassportNo(111111);
 
-				//@Test
-				void testAssignDependantToApplicantRejectedPT2() {
-					Dependant dep = visaSrv.assignDependantsToApplicant(32,33);
-					assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
-				}
+		depend = dependDAO.save(depend);
 
-				//@Test
-				void testPassVisaCriteriaRejectedPT2() {
-					System.out.println(critDAO.criteriaForVisa(33));
-				}
-	
+		System.out.println(depend);
+		assertNotNull(depend, "Dependent Not Added");
+
+	}
+
+	//@Test
+	void testAssignDependantToApplicantRejected() {
+		Dependant dep = visaSrv.assignDependantsToApplicant(24,25);
+		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
+	}
+
+	//@Test
+	void testPassVisaCriteriaRejected() {
+		critDAO.criteriaForVisa(25);
+	}
+
+
+	//This person is in the criminal database and his dependant is => therefore in rejected
+	//@Test
+	void testAddApplicantDAORejectedForBothDependantApplicant() {
+		Applicant applicant = new Applicant();
+
+		applicant.setName("Should be rejected 2");
+		applicant.setPassportNo(00376000l);
+		applicant.setCoutryOfNationality("UK");
+		applicant.setDatOfBirth("01/0/1987");
+		applicant.setGender(Gender.MALE);
+		applicant.setContactEmail("andrew123@gmail.com");
+		applicant.setContactLanguage("English");
+		applicant.setPlaceOfBirth("Sheffield");
+		applicant.setCountryOfBirth("England");
+		applicant.setRelationshipStatus(RelationshipStatus.MARRIED);
+		applicant.setHaveEmail(true);
+		applicant.setWhoDoesThisEmailBelongTo("Andrew");
+		applicant.setFamilyName("Fernández");
+		applicant.setGivenName("Crooks");
+		applicant.setCanBeContactedByTelephone(true);
+		applicant.setTypeOfTelephone(TypeOfTelephone.MOBILE);
+		applicant.setForUseWhileOutsideOfUK(true);
+		applicant.setForUseWhileInsideOfUK(true);
+		applicant.setTelephone(07236152123);
+		applicant.setRecievedUKMedicalTreatment(true);
+		applicant.setHaveUKDrivingLicense(true);
+		applicant.setAddress("123 Howard Street 8SH 9NS");
+		applicant.setOwnershipStatusOfHome("Owned");
+		applicant.setHowLongHaveYouLivedAtThisAddress(7.11);
+		applicant.setThisCorrespondenceAddress(true);
+		applicant.setHoldAnyOtherCItizenship(true);
+		applicant.setNationalIdentityNo(627381736);
+		applicant.setIssuingAuthority("British Government");
+		applicant.setEnteredUKIllegally(false);
+		applicant.setRemainedInUKBeyondVisa(false);
+		applicant.setBreachedConditions(false);
+		applicant.setBeenInUkPast10Years(true);
+
+
+		applicant=applicantDAO.save(applicant);
+		System.out.println(applicant);
+		//assertNotNull(applicant,"Applicant not added");
+
+	}
+
+
+	//@Test
+	void testDependantDAOAddRejectedPT2() {
+		Dependant depend = new Dependant();
+		depend.setDateOfBirth("14/08/1994");
+		depend.setGivenNames("Lee Smith123");
+		depend.setFamilyName("Smith");
+		depend.setRelationshipToYou(dependantRelationship.GODPARENT);
+		depend.setCountryOfNationality("United States");
+		depend.setAlwaysHadSameNationality(true);
+		depend.setPassportNo(456376090l);
+
+		depend = dependDAO.save(depend);
+
+		System.out.println(depend);
+		assertNotNull(depend, "Dependent Not Added");
+
+	}
+
+	//@Test
+	void testAssignDependantToApplicantRejectedPT2() {
+		Dependant dep = visaSrv.assignDependantsToApplicant(36,37);
+		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
+	}
+
+	//@Test
+	void testPassVisaCriteriaRejectedPT2() {
+		critDAO.criteriaForVisa(37);
+	}
+
 
 
 }

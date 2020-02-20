@@ -121,15 +121,26 @@ public class Applicant {
 	@FormParam("beenInUkPast10Years")
 	boolean beenInUkPast10Years;
 	
+	@FormParam("currentApplicationStatus")
+	String currentApplicationStatus;
+		
 	//Relationships
-	
+
 	Set<Dependant> dependantsRecords= new HashSet <>();
 	
 	Set<EmploymentHistory> employmentHistoryRecords= new HashSet<>();
 	
 	Set<Application> applicationRecords= new HashSet<>();
-	
 
+
+	public String getCurrentApplicationStatus() {
+		return currentApplicationStatus;
+	}
+
+	public void setCurrentApplicationStatus(String currentApplicationStatus) {
+		this.currentApplicationStatus = currentApplicationStatus;
+	}
+	
 	@OneToMany(mappedBy="assignedApplicant",cascade=CascadeType.ALL)
 	@XmlTransient  
 	public Set<Dependant> getDependantsRecords() {
