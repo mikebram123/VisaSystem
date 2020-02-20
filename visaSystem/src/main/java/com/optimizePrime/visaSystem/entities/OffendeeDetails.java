@@ -18,6 +18,8 @@ public class OffendeeDetails {
 	String Location;
 	String Gender;
 	
+	//Getters and Setters
+	
 	public long getPassportNo() {
 		return passportNo;
 	}
@@ -65,15 +67,19 @@ public class OffendeeDetails {
 	public void setDate(String date) {
 		Date = date;
 	}
+	
 	public String getLocation() {
 		return Location;
 	}
+	
 	public void setLocation(String location) {
 		Location = location;
 	}
+	
 	public String getGender() {
 		return Gender;
 	}
+	
 	public void setGender(String gender) {
 		Gender = gender;
 	}

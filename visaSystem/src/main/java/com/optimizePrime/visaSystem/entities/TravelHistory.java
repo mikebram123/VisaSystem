@@ -48,6 +48,7 @@ public class TravelHistory {
 	@FormParam("bannedFromEntry")
 	boolean bannedFromEntry;
 	
+	//RELATIONSHIPS
 	
 	Application assignedApplication;
 	Set<Country> countryRecords = new HashSet<>();
@@ -77,6 +78,9 @@ public class TravelHistory {
 	public Set<Country> getCountryRecords() {
 		return countryRecords;
 	}
+	
+	//GETTERS AND SETTERS
+	
 	public void setCountryRecords(Set<Country> countryRecords) {
 		this.countryRecords = countryRecords;
 	}
@@ -130,6 +134,8 @@ public class TravelHistory {
 	
 	}
 	
+	//TOSTRING
+	
 	@Override
 	public String toString() {
 		return "TravelHistory [travelHistoryId=" + travelHistoryId 
@@ -138,6 +144,9 @@ public class TravelHistory {
 				+ deported + ", removed=" + removed + ", requiredToLeave=" + requiredToLeave + ", bannedFromEntry="
 				+ bannedFromEntry  + "]";
 	}
+	
+	//HASHCODE
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

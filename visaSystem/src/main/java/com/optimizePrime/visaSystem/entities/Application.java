@@ -84,6 +84,8 @@ public class Application {
 	
 	@FormParam("howMuchDoYouEarnAfterTax")
 	private double howMuchDoYouEarnAfterTax;
+	
+	//Relationships
 
 	private Applicant assignedApplicant;
 
@@ -111,6 +113,7 @@ public class Application {
 		this.travelHistoryRecords = travelHistoryRecords;
 	}
 
+	//Getters and Setters
 	@Id // marking the property as primary Key for the table.
 	@Column(name="application_number") // using Column to provide the default column name.
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -177,8 +180,6 @@ public class Application {
 	public void setPassportIssueDate(String passportIssueDate) {
 		this.passportIssueDate = passportIssueDate;
 	}
-
-
 
 	public String getPassportIssuingAuthority() {
 		return passportIssuingAuthority;
@@ -292,6 +293,7 @@ public class Application {
 		this.howMuchDoYouEarnAfterTax = howMuchDoYouEarnAfterTax;
 	}
 
+	//HashCode
 
 	@Override
 	public int hashCode() {
@@ -315,6 +317,8 @@ public class Application {
 		return true;
 	}
 
+	//toString
+	
 	@Override
 	public String toString() {
 		return "Application [applicationid=" + applicationid + ", dateYouPlanToLeaveUK=" + dateYouPlanToLeaveUK

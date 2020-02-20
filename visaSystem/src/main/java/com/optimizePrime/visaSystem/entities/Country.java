@@ -21,6 +21,8 @@ public class Country {
 	@FormParam("countryVisited")
 	String countryVisited;
 	
+	//Relationship
+	
 	TravelHistory assignedTravelHistory;
 	
 	@ManyToOne
@@ -32,6 +34,9 @@ public class Country {
 	public void setAssignedTravelHistory(TravelHistory assignedTravelHistory) {
 		this.assignedTravelHistory = assignedTravelHistory;
 	}
+	
+	//Getters and Setters
+	
 	@Id
 	@Column(name="Country_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -48,11 +53,16 @@ public class Country {
 		this.countryVisited = countryVisited;
 	}
 	
+	//toString
+	
 	@Override
 	public String toString() {
 		return "Country [countryId=" + countryId + ", countryVisited=" + countryVisited + ", assignedTravelHistory="
 				+ assignedTravelHistory + "]";
 	}
+	
+	//HashCode
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

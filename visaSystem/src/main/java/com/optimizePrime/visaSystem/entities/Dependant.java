@@ -42,15 +42,13 @@ public class Dependant {
 	@FormParam("passportNo")
 	private long passportNo;
 	
+	//Relationships
 	
-
 	private Applicant assignedApplicant;
 	
 	public Dependant() {
 		// TODO Auto-generated constructor stub
-	}
-	
-	
+	}	
 
 	@ManyToOne
 	@JoinColumn(name="fk_dependant_records")
@@ -60,14 +58,11 @@ public class Dependant {
 	}
 
 
-
 	public void setAssignedApplicant(Applicant assignedApplicant) {
 		this.assignedApplicant = assignedApplicant;
 	}
 
-
-
-
+	//toString
 
 	@Override
 	public String toString() {
@@ -79,7 +74,7 @@ public class Dependant {
 
 
 
-	//GETTERS AND SETTERS
+	//Getters and Setters
 	@Id
 	@Column(name="department_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -117,7 +112,7 @@ public class Dependant {
 		this.dateOfBirth = dateOfBirth;
 	}
 	
-	//Create Enum
+	
 	@Enumerated(EnumType.STRING)
 	public dependantRelationship getRelationshipToYou() {
 		return relationshipToYou;
@@ -151,6 +146,8 @@ public class Dependant {
 	public void setPassportNo(long passportNo) {
 		this.passportNo = passportNo;
 	}
+	
+	//HashCode
 	
 	@Override
 	public int hashCode() {
