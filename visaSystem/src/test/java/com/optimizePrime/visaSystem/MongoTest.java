@@ -11,13 +11,13 @@ import com.mongodb.DBCursor;
 import com.optimizePrime.visaSystem.dao.OffendeeDetailsDAO;
 import com.optimizePrime.visaSystem.entities.OffendeeDetails;
 	
-@SpringBootTest 
+//@SpringBootTest 
 class MongoTest {
 	
 	@Autowired
 	OffendeeDetailsDAO offDAO;
 	
-	//@Test
+	@Test
     void testAddOffendeeDetailsDocument() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(000376763l);
@@ -35,7 +35,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-	//@Test
+	@Test
     void testAddOffendeeDetailsDocument1() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(000376000l);
@@ -53,7 +53,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument2() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(456376090l);
@@ -71,7 +71,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument3() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(222555999l);
@@ -88,7 +88,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument4() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(222001234l);
@@ -106,7 +106,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument5() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(987654321l);
@@ -124,7 +124,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument6() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(555666998l);
@@ -142,7 +142,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument7() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(457980132l);
@@ -159,7 +159,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument8() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(457980132l);
@@ -176,7 +176,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument9() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(132444555l);
@@ -193,7 +193,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument10() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999988765l);
@@ -210,7 +210,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument11() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(912376839l);
@@ -227,7 +227,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument12() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(939873450l);
@@ -244,7 +244,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument13() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999988476l);
@@ -261,7 +261,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument14() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(678002008l);
@@ -278,7 +278,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument15() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(678002134l);
@@ -295,7 +295,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument16() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999333888l);
@@ -312,7 +312,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument17() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(124567342l);
@@ -329,7 +329,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument18() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(100084592l);
@@ -346,7 +346,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument19() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(100300005l);
@@ -363,7 +363,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument20() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(456376090l);
@@ -380,7 +380,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument21() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(456223090l);
@@ -397,7 +397,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument22() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(123452000l);
@@ -414,7 +414,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument23() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999012666l);
@@ -431,7 +431,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument24() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999777666l);
@@ -448,7 +448,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument25() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999777666l);
@@ -465,7 +465,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument26() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999757666l);
@@ -482,7 +482,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument27() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999707606l);
@@ -499,7 +499,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument28() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(999777124l);
@@ -516,7 +516,7 @@ class MongoTest {
     	assertNotNull(od,"Job Position Not Saved");
 	}
     
-    //@Test
+    @Test
     void testAddOffendeeDetailsDocument29() {
     	OffendeeDetails od = new OffendeeDetails();
     	od.setPassportNo(986742241l);

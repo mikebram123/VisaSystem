@@ -38,6 +38,8 @@ public class EmploymentHistory {
 	public EmploymentHistory() {
 	}
 
+	//Getters and Setters
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	public int getEmploymentId() {
@@ -88,6 +90,7 @@ public class EmploymentHistory {
 		this.telephone = telephone;
 	}
 
+	//Relationship
 	
 	@ManyToOne
 	@JoinColumn(name="fk_assigned_applicant")

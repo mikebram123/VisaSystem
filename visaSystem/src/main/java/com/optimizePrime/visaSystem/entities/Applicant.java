@@ -123,13 +123,15 @@ public class Applicant {
 	
 	@FormParam("currentApplicationStatus")
 	String currentApplicationStatus;
-	
-	
+		
+	//Relationships
+
 	Set<Dependant> dependantsRecords= new HashSet <>();
 	
 	Set<EmploymentHistory> employmentHistoryRecords= new HashSet<>();
 	
 	Set<Application> applicationRecords= new HashSet<>();
+
 
 	public String getCurrentApplicationStatus() {
 		return currentApplicationStatus;
@@ -138,7 +140,7 @@ public class Applicant {
 	public void setCurrentApplicationStatus(String currentApplicationStatus) {
 		this.currentApplicationStatus = currentApplicationStatus;
 	}
-
+	
 	@OneToMany(mappedBy="assignedApplicant",cascade=CascadeType.ALL)
 	@XmlTransient  
 	public Set<Dependant> getDependantsRecords() {
@@ -169,11 +171,12 @@ public class Applicant {
 		this.applicationRecords = applicationRecords;
 	}
 	
-
+	//Constructor
 	public Applicant() {
-		// TODO Auto-generated constructor stub
 	}
 
+	//Getters and Setters
+	
 	@Id
 	@Column(name="Applicant_Id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -184,6 +187,7 @@ public class Applicant {
 	public void setApplicantId(int applicantId) {
 		this.applicantId = applicantId;
 	}
+	
 	@Column(name="Applicant_name",length=50,nullable=false)
 	public String getName() {
 		return Name;
@@ -192,6 +196,7 @@ public class Applicant {
 	public void setName(String name) {
 		Name = name;
 	}
+	
 	@Column(name="Passport_No",length=9,nullable=false)
 	public long getPassportNo() {
 		return passportNo;
@@ -208,6 +213,7 @@ public class Applicant {
 	public void setCoutryOfNationality(String coutryOfNationality) {
 		this.coutryOfNationality = coutryOfNationality;
 	}
+	
 	@Column(name="Date_ofBirth",length=10,nullable=false)
 	public String getDatOfBirth() {
 		return datOfBirth;
@@ -449,6 +455,8 @@ public class Applicant {
 		this.beenInUkPast10Years = beenInUkPast10Years;
 	}
 
+	//HashCode
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -471,6 +479,8 @@ public class Applicant {
 		return true;
 	}
 
+	//toString
+	
 	@Override
 	public String toString() {
 		return "Applicant [applicantId=" + applicantId + ", Name=" + Name + ", passportNo=" + passportNo
@@ -492,7 +502,6 @@ public class Applicant {
 				+ beenInUkPast10Years + "]";
 	}
 	
-	
-	
+
 	
 }
