@@ -56,11 +56,11 @@ public class CriteriaTests {
 	CriteriaServices critDAO;
 
 
-	//This Guy Should Pass Accepted FOR DEMO NOT ON DATABASE DEPENDANT NOT ON DATABASE ANSWERED QUESTIONS CORRECTLY
+	//Applicant Status Should be Accepted 
+	//NOT ON DATABASE DEPENDANT NOT ON DATABASE ANSWERED QUESTIONS CORRECTLY
 	//@Test
 	void testAddApplicantDAOAccepted() {
 		Applicant applicant = new Applicant();
-
 		applicant.setName("Andrew Crooks");
 		applicant.setPassportNo(111173522);
 		applicant.setCoutryOfNationality("UK");
@@ -84,6 +84,7 @@ public class CriteriaTests {
 		applicant.setHaveUKDrivingLicense(true);
 		applicant.setAddress("123 Howard Street 8SH 9NS");
 		applicant.setOwnershipStatusOfHome("Owned");
+		applicant.setWhereDoYouUseTelephone("Home");
 		applicant.setHowLongHaveYouLivedAtThisAddress(7.11);
 		applicant.setThisCorrespondenceAddress(true);
 		applicant.setHoldAnyOtherCItizenship(true);
@@ -97,8 +98,6 @@ public class CriteriaTests {
 
 		applicant=applicantDAO.save(applicant);
 		System.out.println(applicant);
-		//assertNotNull(applicant,"Applicant not added");
-
 	}
 
 
@@ -122,13 +121,14 @@ public class CriteriaTests {
 
 	//@Test
 	void testAssignDependantToApplicantAccepted() {
-		Dependant dep = visaSrv.assignDependantsToApplicant(34,35);
+		Dependant dep = visaSrv.assignDependantsToApplicant(40,39);
 		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 	}
 
-	//@Test
+																			//RUN THIS IS ON DEMO
+	@Test
 	void testPassVisaCriteriaAccepted() {
-		critDAO.criteriaForVisa(35);
+		critDAO.criteriaForVisa(39);
 	}
 
 
@@ -163,6 +163,7 @@ public class CriteriaTests {
 		applicant.setHowLongHaveYouLivedAtThisAddress(7.11);
 		applicant.setThisCorrespondenceAddress(true);
 		applicant.setHoldAnyOtherCItizenship(true);
+		applicant.setWhereDoYouUseTelephone("Home");
 		applicant.setNationalIdentityNo(627381736);
 		applicant.setIssuingAuthority("British Government");
 		applicant.setEnteredUKIllegally(false);
@@ -198,13 +199,13 @@ public class CriteriaTests {
 
 	//@Test
 	void testAssignDependantToApplicantAcceptedAfter10() {
-		Dependant dep = visaSrv.assignDependantsToApplicant(23,22);
+		Dependant dep = visaSrv.assignDependantsToApplicant(42,41);
 		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 	}
 
-	//@Test
+	//@Test											//RUN FOR DEMO
 	void testPassVisaCriteriaAcceptedAfter10() {
-		critDAO.criteriaForVisa(22);  							//doesnt work
+		critDAO.criteriaForVisa(41);  							
 	}
 
 
@@ -242,6 +243,7 @@ public class CriteriaTests {
 		applicant.setThisCorrespondenceAddress(true);
 		applicant.setHoldAnyOtherCItizenship(true);
 		applicant.setNationalIdentityNo(627381736);
+		applicant.setWhereDoYouUseTelephone("Home");
 		applicant.setIssuingAuthority("British Government");
 		applicant.setEnteredUKIllegally(false);
 		applicant.setRemainedInUKBeyondVisa(true);
@@ -276,13 +278,13 @@ public class CriteriaTests {
 
 	//@Test
 	void testAssignDependantToApplicant() {
-		Dependant dep = visaSrv.assignDependantsToApplicant(15,14);
+		Dependant dep = visaSrv.assignDependantsToApplicant(44,43);
 		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 	}
-
+																			//Run this for DEMO
 	//@Test
 	void testPassVisaCriteria() {
-		critDAO.criteriaForVisa(14);
+		critDAO.criteriaForVisa(43);
 	}
 
 
@@ -309,6 +311,7 @@ public class CriteriaTests {
 		applicant.setTypeOfTelephone(TypeOfTelephone.MOBILE);
 		applicant.setForUseWhileOutsideOfUK(true);
 		applicant.setForUseWhileInsideOfUK(true);
+		applicant.setWhereDoYouUseTelephone("Home");
 		applicant.setTelephone(07236152123);
 		applicant.setRecievedUKMedicalTreatment(true);
 		applicant.setHaveUKDrivingLicense(true);
@@ -352,13 +355,14 @@ public class CriteriaTests {
 
 	//@Test
 	void testAssignDependantToApplicantpt2() {
-		Dependant dep = visaSrv.assignDependantsToApplicant(20,21);
+		Dependant dep = visaSrv.assignDependantsToApplicant(45,46);
 		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 	}
+											//RUN This for DEMO
 
 	//@Test
 	void testPassVisaCriteriapt2() {
-		critDAO.criteriaForVisa(21);
+		critDAO.criteriaForVisa(46);
 	}
 
 
@@ -378,6 +382,7 @@ public class CriteriaTests {
 		applicant.setCountryOfBirth("England");
 		applicant.setRelationshipStatus(RelationshipStatus.MARRIED);
 		applicant.setHaveEmail(true);
+		applicant.setWhereDoYouUseTelephone("Home");
 		applicant.setWhoDoesThisEmailBelongTo("Andrew");
 		applicant.setFamilyName("Fernández");
 		applicant.setGivenName("Crooks");
@@ -428,13 +433,14 @@ public class CriteriaTests {
 
 	//@Test
 	void testAssignDependantToApplicantRejected() {
-		Dependant dep = visaSrv.assignDependantsToApplicant(24,25);
+		Dependant dep = visaSrv.assignDependantsToApplicant(47,48);
 		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 	}
 
+											//Run This for Demo
 	//@Test
 	void testPassVisaCriteriaRejected() {
-		critDAO.criteriaForVisa(25);
+		critDAO.criteriaForVisa(48);
 	}
 
 
@@ -461,6 +467,7 @@ public class CriteriaTests {
 		applicant.setTypeOfTelephone(TypeOfTelephone.MOBILE);
 		applicant.setForUseWhileOutsideOfUK(true);
 		applicant.setForUseWhileInsideOfUK(true);
+		applicant.setWhereDoYouUseTelephone("Home");
 		applicant.setTelephone(07236152123);
 		applicant.setRecievedUKMedicalTreatment(true);
 		applicant.setHaveUKDrivingLicense(true);
@@ -504,13 +511,15 @@ public class CriteriaTests {
 
 	//@Test
 	void testAssignDependantToApplicantRejectedPT2() {
-		Dependant dep = visaSrv.assignDependantsToApplicant(36,37);
+		Dependant dep = visaSrv.assignDependantsToApplicant(49,50);
 		assertNotNull(dep.getAssignedApplicant(), "Applicant Not Found");
 	}
 
+	
+										//RUN IN DEMO
 	//@Test
 	void testPassVisaCriteriaRejectedPT2() {
-		critDAO.criteriaForVisa(37);
+		critDAO.criteriaForVisa(50);
 	}
 
 
