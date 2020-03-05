@@ -97,7 +97,7 @@ public class Applicant {
 	@FormParam("howLongHaveYouLivedAtThisAddress")
 	double howLongHaveYouLivedAtThisAddress;
 	
-	@FormParam("isThisCorrespondenceAddress")
+	@FormParam("thisCorrespondenceAddress")
 	boolean isThisCorrespondenceAddress;
 	
 	@FormParam("holdAnyOtherCItizenship")

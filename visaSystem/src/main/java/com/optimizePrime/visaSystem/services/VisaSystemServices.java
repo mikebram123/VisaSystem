@@ -1,5 +1,7 @@
 package com.optimizePrime.visaSystem.services;
 
+import java.util.Set;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +49,7 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 	EmploymentHistoryJPADAO emphisDAO;
 	
 	@Transactional
-	public Application assignApplicationToApplicant(int applicationid, int applicationRecords) {
+	public Application assignApplicantToApplication(int applicationid, int applicationRecords) {
 		Application application = applicationDAO.findById(applicationid).get(); // fetch the employee if exists.
 		Applicant applicant = applicantDAO.findById(applicationRecords).get(); // fetch the department if exists.
 		
@@ -188,5 +190,35 @@ public class VisaSystemServices implements ApplicantAPI, ApplicationAPI,CountryA
 	public Applicant registerNewApplicant(Applicant newApplicant) {
 		newApplicant= applicantDAO.save(newApplicant);
 		return newApplicant;
+	}
+
+	@Override
+	@Transactional
+	public Set<Application> getApplicantApplications(int applicantId) {
+		Applicant currentApp = applicantDAO.findById(applicantId).get();
+		int count = currentApp.getApplicationRecords().size();
+		System.out.println(count+ " Accounts found");
+		Set<Application> accounts = currentApp.getApplicationRecords();
+		return accounts;
+	}
+	
+	@Transactional
+	public Applicant assignApplicationToApplicant(int applicantId, int applicationId) {
+		Applicant applicant = applicantDAO.findById(applicantId).get();
+		Application application = applicationDAO.findById(applicationId).get();
+		
+		
+		application.setAssignedApplicant(applicant);
+		applicant.getApplicationRecords().add(application);
+		
+		return applicant;
+	}
+
+	@Override
+	@Transactional
+	public Application registerApplicationForApplicant(int applicantId, Application newApplication) {
+		newApplication = applicationDAO.save(newApplication);
+		assignApplicationToApplicant(applicantId, newApplication.getApplicationid());
+		return newApplication;
 	}
 }

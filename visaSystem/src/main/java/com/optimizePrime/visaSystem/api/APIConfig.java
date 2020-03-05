@@ -11,6 +11,7 @@ public class APIConfig extends ResourceConfig {
 	
 	public APIConfig() {
 		register(VisaSystemServices.class);
+		register(CORSFilter.class);
 	}
 
 }
