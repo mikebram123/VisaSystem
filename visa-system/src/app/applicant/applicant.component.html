@@ -1,0 +1,622 @@
+<h2>Applicant Details</h2>
+<table>
+    <tr>
+        <td>
+            Applicant Id:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.applicantId}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="applicantId" [(ngModel)]="currentApplicant.applicantId">
+        </td>
+        <td>
+            <button (click)="toggleApplicantEditForm()">{{((isApplicantEditing)?"Save":"Edit")}}</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Name:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.name}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="name" [(ngModel)]="currentApplicant.name">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Passport Number:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.passportNo}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="passportNo" [(ngModel)]="currentApplicant.passportNo">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Country Of Nationality:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.coutryOfNationality}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="coutryOfNationality" [(ngModel)]="currentApplicant.coutryOfNationality">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            date Of Birth:
+        </td>
+        <td *ngIf ="!isApplicantEditing" >
+            {{currentApplicant.datOfBirth}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="datOfBirth" [(ngModel)]="currentApplicant.datOfBirth">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            gender:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.gender}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="gender" [(ngModel)]="currentApplicant.gender"> 
+        </td>
+    </tr>
+
+    
+    <tr>
+        <td>
+            contact Email:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.contactEmail}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="contactEmail" [(ngModel)]="currentApplicant.contactEmail"> 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            contact Language:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.contactLanguage}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="contactLanguage" [(ngModel)]="currentApplicant.contactLanguage">   
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            place Of Birth:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.placeOfBirth}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="placeOfBirth" [(ngModel)]="currentApplicant.placeOfBirth"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            relationshipStatus:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.relationshipStatus}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="relationshipStatus" [(ngModel)]="currentApplicant.relationshipStatus">   
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            have Email:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.haveEmail}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="haveEmail" [(ngModel)]="currentApplicant.haveEmail"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            who Does This Email Belong To:
+        </td>
+        <td *ngIf ="!isApplicantEditing" >
+            {{currentApplicant.whoDoesThisEmailBelongTo}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="whoDoesThisEmailBelongTo" [(ngModel)]="currentApplicant.whoDoesThisEmailBelongTo">  
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            family Name:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.familyName}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="familyName" [(ngModel)]="currentApplicant.familyName">   
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            given Name:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.givenName}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="givenName" [(ngModel)]="currentApplicant.givenName">  
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            can Be Contacted By Telephone:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.canBeContactedByTelephone}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="canBeContactedByTelephone" [(ngModel)]="currentApplicant.canBeContactedByTelephone">  
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            type Of Telephone:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.typeOfTelephone}}
+        </td>
+        <td *ngIf="isApplicantEditing"> 
+            <input name="typeOfTelephone" [(ngModel)]="currentApplicant.typeOfTelephone">
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            for Use While Outside Of UK:
+        </td>
+        <td *ngIf ="!isApplicantEditing" >
+            {{currentApplicant.forUseWhileOutsideOfUK}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="forUseWhileOutsideOfUK" [(ngModel)]="currentApplicant.forUseWhileOutsideOfUK"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            for Use While Inside Of UK:
+        </td>
+        <td *ngIf ="!isApplicantEditing" >
+            {{currentApplicant.forUseWhileInsideOfUK}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="forUseWhileInsideOfUK" [(ngModel)]="currentApplicant.forUseWhileInsideOfUK"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            where Do You Use Telephone:
+        </td>
+        <td *ngIf ="!isApplicantEditing" >
+            {{currentApplicant.whereDoYouUseTelephone}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="whereDoYouUseTelephone" [(ngModel)]="currentApplicant.whereDoYouUseTelephone"> 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            telephone:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.telephone}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="telephone" [(ngModel)]="currentApplicant.telephone">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            recieved UK Medical Treatment:
+        </td>
+        <td *ngIf ="!isApplicantEditing" >
+            {{currentApplicant.recievedUKMedicalTreatment}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="recievedUKMedicalTreatment" [(ngModel)]="currentApplicant.recievedUKMedicalTreatment">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            have UK Driving Licence:
+        </td>
+        <td *ngIf ="!isApplicantEditing" >
+            {{currentApplicant.haveUKDrivingLicense}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="haveUKDrivingLicense" [(ngModel)]="currentApplicant.haveUKDrivingLicense"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Address:
+        </td>
+        <td  *ngIf ="!isApplicantEditing">
+            {{currentApplicant.address}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="address" [(ngModel)]="currentApplicant.address"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            ownership Status Of Home:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.ownershipStatusOfHome}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="ownershipStatusOfHome" [(ngModel)]="currentApplicant.ownershipStatusOfHome"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            how Long Have You Lived At This Address:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.howLongHaveYouLivedAtThisAddress}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="howLongHaveYouLivedAtThisAddress" [(ngModel)]="currentApplicant.howLongHaveYouLivedAtThisAddress"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+             This Correspondence Address:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.thisCorrespondenceAddress}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="thisCorrespondenceAddress" [(ngModel)]="currentApplicant.thisCorrespondenceAddress"> 
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            hold Any Other Citizenship:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.holdAnyOtherCItizenship}}
+        </td>
+        <td *ngIf="isApplicantEditing" >
+            <input name="holdAnyOtherCItizenship" [(ngModel)]="currentApplicant.holdAnyOtherCItizenship"> 
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            national Identity No:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.nationalIdentityNo}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="nationalIdentityNo" [(ngModel)]="currentApplicant.nationalIdentityNo">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            issuing Authority:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.issuingAuthority}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="issuingAuthority" [(ngModel)]="currentApplicant.issuingAuthority">
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            entered UK Illegally:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.enteredUKIllegally}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="enteredUKIllegally" [(ngModel)]="currentApplicant.enteredUKIllegally">     
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            remained In UK Beyond Visa:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.remainedInUKBeyondVisa}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="remainedInUKBeyondVisa" [(ngModel)]="currentApplicant.remainedInUKBeyondVisa">     
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            breached Conditions:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.breachedConditions}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="breachedConditions" [(ngModel)]="currentApplicant.breachedConditions">     
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            been In UK Past 10 Years:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.beenInUkPast10Years}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="beenInUkPast10Years" [(ngModel)]="currentApplicant.beenInUkPast10Years">     
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            current Application Status:
+        </td>
+        <td *ngIf ="!isApplicantEditing">
+            {{currentApplicant.currentApplicationStatus}}
+        </td>
+        <td *ngIf="isApplicantEditing">
+            <input name="currentApplicationStatus" [(ngModel)]="currentApplicant.currentApplicationStatus">     
+        </td>
+    </tr> 
+</table>
+<h1>Application Details
+</h1>
+<form *ngIf="isApplicationFormVisible" 
+    (submit)="addNewApplication(
+        {applicationid:0, dateYouPlanToLeaveUK:leave.value,
+            dateYouPlanToArriveUK:arrive.value,
+            whatAreYouBeingPaidFor:whatpaid.value, 
+            howMuchWillYouBePaid:howpaid.value, 
+            whoWillBePayingYouInUK:whopaid.value, 
+            passportExpiryDate:passexp.value, 
+            passportIssueDate:passissue.value, 
+            passportIssuingAuthority:passauth.value, 
+            totalPrice:price.value, 
+            lengthOfVisaVisit:visalen.value, 
+            haveAddressInUK:haveadd.value, 
+            addressInUK:address.value, 
+            familyInUK:family.value, 
+            reasonWhyTherePayingForVisit:reason.value, 
+            howMuchMoneyAreTheyPaying:howmuchpaid.value, 
+            relyOnYouFinancially:rely.value, 
+            receivedPublicFundsFromUK:received.value, 
+            whoIsPayingYourVisit:whopayvisit.value, 
+            amountSpendEachMonth:amountspend.value, 
+            anotherIncome:anincome.value, 
+            howMuchDoYouEarnAfterTax:tax.value})">
+    <table>
+    <tr>   
+        <td>
+            <input placeholder="dateYouPlanToLeaveUK" name="dateYouPlanToLeaveUK" #leave>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="dateYouPlanArriveUK" name="dateYouPlanToArriveUK" #arrive>
+        </td>
+    </tr>
+    <tr>
+       
+        <td>
+            <input placeholder="Occupation" name="howMuchWillYouBePaid" #whatpaid>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Salary" name="howMuchWillYouBePaid" #howpaid>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Employer" name="employer" #whopaid>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Passport Expiry Date" name="passportExpiryDate" #passexp>
+        </td>
+    </tr>
+    <tr>
+       
+        <td>
+            <input placeholder="Passport Issue Date" name="passportIssueDate" #passissue>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Issuing Authority" name="issuingAuthority" #passauth>
+        </td>
+    </tr>
+    <tr>
+      
+        <td>
+            <input placeholder="Total Price" name="totalPrice" #price>
+        </td>
+    </tr>
+    <tr>
+       
+        <td>
+            <input placeholder="Visit Length" name="lengthOfVisaVisit" #visalen>
+        </td>
+    </tr>
+    <tr>
+       
+        <td>
+            <input placeholder="Hold UK Address" name="haveAddressInUK" #haveadd>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="UK Address" name="addressInUK" #address>
+        </td>
+    </tr>
+    <tr>
+       
+        <td>
+            <input placeholder="Have UK Family" name="familyInUK" #family>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Reason They're Paying" name="reasonWhyTherePayingForVisit" #reason>
+        </td>
+    </tr>
+    <tr>
+     
+        <td>
+            <input placeholder="howMuchMoneyAreTheyPaying" name="howMuchMoneyAreTheyPaying" #howmuchpaid>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Rely On You Financially?" name="relyOnYouFinancially" #rely>
+        </td>
+    </tr>
+    <tr>
+      
+        <td>
+            <input placeholder="Received Public Funds?" name="receivedPublicFundsFromUK" #received>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Who Is Paying?" name="whoIsPayingYourVisit" #whopayvisit>
+        </td>
+    </tr>
+    <tr>
+      
+        <td>
+            <input placeholder="Average Monthly Spend" name="amountSpendEachMonth" #amountspend>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Alternative Income?" name="anotherIncome" #anincome>
+        </td>
+    </tr>
+    <tr>
+        
+        <td>
+            <input placeholder="Net Salary" name="salary" #tax>
+        </td>
+        
+    </tr>
+    <tr>
+        <td>
+            <input type="submit" value="addNewApplication">
+        </td>
+    </tr>
+</table>   
+</form>
+<table>
+    <tr>
+        <th>Leaving Date</th>
+        <th>Arrival Date</th> 
+        <th>Occupation</th> 
+        <th>Salary</th>
+        <th>Employer</th>
+        <th>Passport Expiry Date</th>
+        <th>Passport Issue Date</th>
+        <th>Issuing Authority</th>
+        <th>Total Price</th>
+        <th>Visit Length</th>
+        <th><button (click)="showApplicationForm()">+</button></th>
+    </tr>
+    <tr *ngFor="let p of applicantApplications">
+        <td style="text-align:center">{{p.dateYouPlanToLeaveUK}}</td>
+        <td style="text-align:center">{{p.dateYouPlanToArriveUK}}</td>
+        <td style="text-align:center">{{p.whatAreYouBeingPaidFor}}</td>
+        <td style="text-align:center">{{p.howMuchWillYouBePaid}}</td>
+        <td style="text-align:center">{{p.whoWillBePayingYouInUK}}</td>
+        <td style="text-align:center">{{p.passportExpiryDate}}</td>
+        <td style="text-align:center">{{p.passportIssueDate}}</td>
+        <td style="text-align:center">{{p.passportIssuingAuthority}}</td>
+        <td style="text-align:center">{{p.totalPrice}}</td>
+        <td style="text-align:center">{{p.lengthOfVisaVisit}}</td>
+    </tr>
+    <br>
+    <tr>
+        <th>UK Address?</th>
+        <th>UK Address</th>
+        <th>UK Family?</th>
+        <th>Reason They're Paying</th>
+        <th>How Much Money Are They Paying</th>
+        <th>Rely On You Financially?</th>
+        <th>Received Public Funds?</th>
+        <th>Who Is Paying?</th>
+        <th>Average Monthly Spend</th>
+        <th>Alternative Income?</th>
+        <th>Net Salary</th>
+    </tr>
+    <tr *ngFor="let p of applicantApplications">
+        <td style="text-align:center">{{p.haveAddressInUK}}</td>
+        <td style="text-align:center">{{p.addressInUK}}</td>
+        <td style="text-align:center">{{p.familyInUK}}</td>
+        <td style="text-align:center">{{p.reasonWhyTherePayingForVisit}}</td>
+        <td style="text-align:center">{{p.howMuchMoneyAreTheyPaying}}</td>
+        <td style="text-align:center">{{p.relyOnYouFinancially}}</td>
+        <td style="text-align:center">{{p.receivedPublicFundsFromUK}}</td>
+        <td style="text-align:center">{{p.whoIsPayingYourVisit}}</td>
+        <td style="text-align:center">{{p.amountSpendEachMonth}}</td>
+        <td style="text-align:center">{{p.anotherIncome}}</td>
+        <td style="text-align:center">{{p.howMuchDoYouEarnAfterTax}}</td>
+    </tr>
+</table>
