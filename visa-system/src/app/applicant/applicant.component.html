@@ -1,5 +1,15 @@
-<h2>Applicant Details</h2>
-<table>
+
+<body>
+   
+
+<!-- <div class="jumbotron">
+<table class="data-table"> -->
+    <form class="jumbotron" >
+            <h2  class="data-table">Applicant Details</h2>
+    <div class="data-table">
+            
+    
+    <!-- class="btn btn-primary btn-lg" -->
     <tr>
         <td>
             Applicant Id:
@@ -7,12 +17,10 @@
         <td *ngIf ="!isApplicantEditing">
             {{currentApplicant.applicantId}}
         </td>
-        <td *ngIf="isApplicantEditing">
+        <td  *ngIf="isApplicantEditing">
             <input name="applicantId" [(ngModel)]="currentApplicant.applicantId">
         </td>
-        <td>
-            <button (click)="toggleApplicantEditForm()">{{((isApplicantEditing)?"Save":"Edit")}}</button>
-        </td>
+       
     </tr>
     <tr>
         <td>
@@ -404,9 +412,21 @@
         </td>
         <td *ngIf="isApplicantEditing">
             <input name="currentApplicationStatus" [(ngModel)]="currentApplicant.currentApplicationStatus">     
-        </td>
+        </td>  
+        
     </tr> 
-</table>
+    <br>
+    <td>
+     <button class="btn-primary btn-lg" (click)="toggleApplicantEditForm()">{{((isApplicantEditing)?"Save":"Edit")}}</button>
+    </td>
+    </div>
+</form>
+</body>
+<!-- </table>
+</div> -->
+
+
+
 <h1>Application Details
 </h1>
 <form *ngIf="isApplicationFormVisible" 
