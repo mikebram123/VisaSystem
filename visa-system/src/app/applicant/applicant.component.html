@@ -593,6 +593,19 @@
         <th>Occupation</th> 
         <th>Salary</th>
         <th>Employer</th>
+    
+    </tr>
+    <tr *ngFor="let p of applicantApplications">
+            <td style="text-align:center">{{p.dateYouPlanToLeaveUK}}</td>
+            <td style="text-align:center">{{p.dateYouPlanToArriveUK}}</td>
+            <td style="text-align:center">{{p.whatAreYouBeingPaidFor}}</td>
+            <td style="text-align:center">{{p.howMuchWillYouBePaid}}</td>
+            <td style="text-align:center">{{p.whoWillBePayingYouInUK}}</td>
+            </tr>
+            <br>
+            <br>
+    <tr>
+
         <th>Passport Expiry Date</th>
         <th>Passport Issue Date</th>
         <th>Issuing Authority</th>
@@ -601,11 +614,6 @@
         
     </tr>
     <tr *ngFor="let p of applicantApplications">
-        <td style="text-align:center">{{p.dateYouPlanToLeaveUK}}</td>
-        <td style="text-align:center">{{p.dateYouPlanToArriveUK}}</td>
-        <td style="text-align:center">{{p.whatAreYouBeingPaidFor}}</td>
-        <td style="text-align:center">{{p.howMuchWillYouBePaid}}</td>
-        <td style="text-align:center">{{p.whoWillBePayingYouInUK}}</td>
         <td style="text-align:center">{{p.passportExpiryDate}}</td>
         <td style="text-align:center">{{p.passportIssueDate}}</td>
         <td style="text-align:center">{{p.passportIssuingAuthority}}</td>
@@ -613,12 +621,25 @@
         <td style="text-align:center">{{p.lengthOfVisaVisit}}</td>
     </tr>
     <br>
+    <br>
     <tr>
         <th>UK Address?</th>
         <th>UK Address</th>
         <th>UK Family?</th>
         <th>Reason They're Paying</th>
         <th>How Much Money Are They Paying</th>
+        
+        <tr *ngFor="let p of applicantApplications">
+            <td style="text-align:center">{{p.haveAddressInUK}}</td>
+            <td style="text-align:center">{{p.addressInUK}}</td>
+            <td style="text-align:center">{{p.familyInUK}}</td>
+            <td style="text-align:center">{{p.reasonWhyTherePayingForVisit}}</td>
+            <td style="text-align:center">{{p.howMuchMoneyAreTheyPaying}}</td>
+        </tr>
+        
+        <br>
+        <br>
+        <tr>
         <th>Rely On You Financially?</th>
         <th>Received Public Funds?</th>
         <th>Who Is Paying?</th>
@@ -627,11 +648,7 @@
         <th>Net Salary</th>
     </tr>
     <tr *ngFor="let p of applicantApplications">
-        <td style="text-align:center">{{p.haveAddressInUK}}</td>
-        <td style="text-align:center">{{p.addressInUK}}</td>
-        <td style="text-align:center">{{p.familyInUK}}</td>
-        <td style="text-align:center">{{p.reasonWhyTherePayingForVisit}}</td>
-        <td style="text-align:center">{{p.howMuchMoneyAreTheyPaying}}</td>
+        
         <td style="text-align:center">{{p.relyOnYouFinancially}}</td>
         <td style="text-align:center">{{p.receivedPublicFundsFromUK}}</td>
         <td style="text-align:center">{{p.whoIsPayingYourVisit}}</td>

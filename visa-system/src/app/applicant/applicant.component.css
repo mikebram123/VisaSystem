@@ -17,7 +17,8 @@ h1{
 }
 
 th{
-    border-block-start-style: dotted;
+    border-block-start-style: double;
+    text-align: center;
 }
 tr{
     border-block-start-style: solid;
