@@ -12,7 +12,9 @@ td {
     
 }
 
-
+h1{
+    text-align: center;
+}
 
 th{
     border-block-start-style: dotted;

@@ -427,7 +427,7 @@
 
 
 
-<h1>Application Details
+<h1>Application Details <button (click)="showApplicationForm()">+</button>
 </h1>
 <form *ngIf="isApplicationFormVisible" 
     (submit)="addNewApplication(
@@ -598,7 +598,7 @@
         <th>Issuing Authority</th>
         <th>Total Price</th>
         <th>Visit Length</th>
-        <th><button (click)="showApplicationForm()">+</button></th>
+        
     </tr>
     <tr *ngFor="let p of applicantApplications">
         <td style="text-align:center">{{p.dateYouPlanToLeaveUK}}</td>
