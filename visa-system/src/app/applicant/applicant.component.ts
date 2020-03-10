@@ -72,7 +72,7 @@ export class ApplicantComponent implements OnInit {
 
   showApplicationForm(){
     console.log("jfdnsjf")
-    this.isApplicationFormVisible=true
+    this.isApplicationFormVisible= !this.isApplicationFormVisible
   }
 
   addNewApplication(newApplication:Application){

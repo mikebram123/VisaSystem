@@ -18,7 +18,7 @@ h1{
 
 th{
     border-block-start-style: double;
-    text-align: center;
+    padding: 10px;
 }
 tr{
     border-block-start-style: solid;
