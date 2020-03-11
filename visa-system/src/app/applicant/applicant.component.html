@@ -4,9 +4,16 @@
 
 <!-- <div class="jumbotron">
 <table class="data-table"> -->
-    <form class="jumbotron" >
-            <h2  class="data-table">Applicant Details</h2>
-    <div class="data-table">
+        
+            
+   
+        <h2  class="data-table" >Applicant Details</h2 > 
+            <button class="btn-primary btn-lg" (click)="showApplicantForm()">Applicant Details</button>
+    <form class="jumbotron" *ngIf ="isApplicantFormVisible" > 
+           
+    <div class="data-table" >
+   
+            
             
     
     <!-- class="btn btn-primary btn-lg" -->
@@ -428,7 +435,8 @@
 
 <div class="data-table">
 <h1>Application Details <button (click)="showApplicationForm()">+</button>
-</h1>
+</h1> 
+<!-- create a new bool for isapplicationedit and using this to toggle the form -->
 <form *ngIf="isApplicationFormVisible" 
     (submit)="addNewApplication(
         {applicationid:0, dateYouPlanToLeaveUK:leave.value,
@@ -586,7 +594,8 @@
     </tr>
 </table>   
 </form>
-<table >
+
+<table class="jumbotron" >
     <tr>
         <th>Leaving Date</th>
         <th>Arrival Date</th> 

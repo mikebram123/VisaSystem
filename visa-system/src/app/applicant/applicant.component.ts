@@ -18,6 +18,7 @@ export class ApplicantComponent implements OnInit {
 
   constructor(private applicantService:ApplicantService) {
     this.isApplicationFormVisible=false
+    this.isApplicantFormVisible=false
     this.currentApplicant={
       applicantId: 46,
       name: "Unknown",
@@ -74,6 +75,11 @@ export class ApplicantComponent implements OnInit {
     console.log("jfdnsjf")
     this.isApplicationFormVisible= !this.isApplicationFormVisible
   }
+  showApplicantForm(){
+    console.log("this works")
+    this.isApplicantFormVisible=!this.isApplicantFormVisible
+    
+  }
 
   addNewApplication(newApplication:Application){
     this.applicantService.registerApplicationForApplicant(
@@ -99,5 +105,8 @@ export class ApplicantComponent implements OnInit {
     this.isApplicantEditing=!this.isApplicantEditing
     this.fetchApplicantFromServer()
   }
+
+ 
+
   
 }
